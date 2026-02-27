@@ -1286,7 +1286,7 @@ html, body {
 .tab-btn:hover {
   background: #0d261a;
   color: #fff;
-  border-color: #6a4e42;
+  border-color: #0d261a;
 }
 
 /* Content Areas */
@@ -1334,15 +1334,15 @@ html, body {
 .blur-wrapper {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
-/* Softer Blur */
 .blur-lock {
   filter: blur(3px);
   transition: filter 0.4s ease;
 }
 
-/* Premium Small Green Button Text */
+/* GREEN VIEW PLAN BUTTON */
 .blur-wrapper::after {
   content: attr(data-label);
   position: absolute;
@@ -1353,30 +1353,22 @@ html, body {
   background: #0d261a;
   color: #ffffff;
 
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 500;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
 
-  border-radius: 4px;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  pointer-events: none;
-
-  transition: all 0.3s ease;
+  z-index: 5;
 }
 
-/* Slight hover effect */
-.blur-wrapper:hover::after {
-  transform: translate(-50%, -50%) scale(1.05);
-}
-
-/* UNLOCKED STATE */
+/* Unlock State */
 .unlocked .blur-lock {
   filter: none;
 }
-
 .unlocked::after {
   display: none;
 }
@@ -1415,26 +1407,23 @@ function openTab(evt, tabId) {
   evt.currentTarget.classList.add('active');
 }
 
-/* Unlock after enquiry */
 document.addEventListener("DOMContentLoaded", function() {
 
+  /* Unlock after enquiry */
   if(localStorage.getItem("leadCaptured") === "true") {
-
     document.querySelectorAll(".blur-wrapper").forEach(wrapper => {
       wrapper.classList.add("unlocked");
     });
-
-    document.querySelectorAll(".blur-wrapper").forEach(wrapper => {
-  wrapper.addEventListener("click", function() {
-
-    if(localStorage.getItem("leadCaptured") !== "true") {
-      document.getElementById("enquireModal").style.display = "flex";
-    }
-
-  });
-});
-
   }
+
+  /* Open enquiry modal when clicked */
+  document.querySelectorAll(".blur-wrapper").forEach(wrapper => {
+    wrapper.addEventListener("click", function() {
+      if(localStorage.getItem("leadCaptured") !== "true") {
+        document.getElementById("enquireModal").style.display = "flex";
+      }
+    });
+  });
 
 });
 </script>

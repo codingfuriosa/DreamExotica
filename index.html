@@ -757,23 +757,37 @@ html, body {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f8f8;
 }
+
+/* ================= SECTION ================= */
 
 .project-highlights {
   max-width: 1200px;
-  margin: 80px auto;
+  margin: 100px auto;
   padding: 0 20px;
-  text-align: center;
 }
 
-.project-highlights h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #333;
+.project-highlights-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.project-highlights-header h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #0d261a;
+  margin-bottom: 15px;
+}
+
+.project-highlights-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
 }
 
 /* ================= GRID ================= */
@@ -786,57 +800,49 @@ body {
 
 /* ================= CARD ================= */
 
-.highlight-box {
+.highlight-card {
   position: relative;
-  background: #fff;
-  padding: 35px 30px;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  transition: all 0.8s ease-out;
-  opacity: 0;
-  transform: translateY(40px);
+  background: #ffffff;
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  transition: all 0.4s ease;
+  overflow: hidden;
 }
 
-.highlight-box.visible {
-  opacity: 1;
-  transform: translateY(0);
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
-/* Big Number */
+/* Elegant Big Background Number */
 
 .highlight-number {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 20px;
-  font-size: 5rem;
-  font-weight: 800;
-  color: rgba(4,106,56,0.18);
+  font-size: 95px;  
+  font-weight: 700;
+  color: rgba(34, 139, 94, 0.40); /* faded green */
+  z-index: 0;
   pointer-events: none;
 }
 
 /* Title */
 
 .highlight-title {
-  margin-top: 100px;
   font-size: 1.5rem;
   font-weight: 700;
   color: #0d261a;
   margin-bottom: 15px;
-  text-align: center;
 }
 
 /* Description */
 
 .highlight-desc {
-  margin-top: auto;
   font-size: 1rem;
-  line-height: 1.7;
-  color: #333;
-  text-align: center;
-  padding-bottom: 10px;
+  color: #444;
+  line-height: 1.8;
 }
 
 /* ================= TABLET ================= */
@@ -844,6 +850,10 @@ body {
 @media (max-width: 992px) {
   .highlights-grid {
     gap: 30px;
+  }
+
+  .highlight-card {
+    padding: 40px 30px;
   }
 }
 
@@ -856,94 +866,84 @@ body {
     gap: 25px;
   }
 
-  .highlight-box {
-    min-height: 380px; /* Flexible instead of strict square */
-    padding: 30px 25px;
+  .project-highlights {
+    margin: 70px auto;
+  }
+
+  .project-highlights-header h2 {
+    font-size: 2rem;
+  }
+
+  .highlight-card {
+    padding: 35px 25px;
   }
 
   .highlight-number {
-    font-size: 4rem;
+    font-size: 2.5rem;
     top: 15px;
-    right: 15px;
+    right: 20px;
   }
 
   .highlight-title {
-    margin-top: 90px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .highlight-desc {
-    font-size: 1.05rem;
-    margin-top: auto;
-  }
-}
-
-/* ================= SMALL DEVICES ================= */
-
-@media (max-width: 400px) {
-
-  .highlight-box {
-    min-height: 420px;
-  }
-
-  .highlight-title {
-    font-size: 1.8rem;
-    margin-top: 80px
-  }
-
-  .highlight-desc {
-    font-size: 1.1rem;
+    font-size: 0.98rem;
   }
 }
 </style>
-</head>
-<body>
 
 <section class="project-highlights">
-  <h2>Project Highlights</h2>
+
+  <div class="project-highlights-header">
+    <h2>Project Highlights</h2>
+    <p>
+      Discover the thoughtfully designed features that make Dream Exotica a comfortable,
+      well-connected, and refined place to live.
+    </p>
+  </div>
+
   <div class="highlights-grid">
-    <div class="highlight-box">
+
+    <div class="highlight-card">
       <div class="highlight-number">01</div>
       <div class="highlight-title">Prime Location</div>
-      <div class="highlight-desc">Dream Exotica is well located with easy access to main roads, schools, hospitals, shopping areas, and daily essentials, offering convenience while maintaining a calm and comfortable residential setting.</div>
+      <div class="highlight-desc">
+        Strategically situated with easy access to key roads, schools, healthcare centers,
+        and shopping destinations, offering daily convenience within a peaceful environment.
+      </div>
     </div>
-    <div class="highlight-box">
+
+    <div class="highlight-card">
       <div class="highlight-number">02</div>
-      <div class="highlight-title">Architectural Excellence</div>
-      <div class="highlight-desc">The project features modern design with well-planned layouts, good ventilation, natural light, and practical spaces that create a comfortable and functional living environment.</div>
+      <div class="highlight-title">Modern Architecture</div>
+      <div class="highlight-desc">
+        Designed with contemporary aesthetics, efficient layouts, ample natural light,
+        and well-ventilated spaces that enhance everyday comfort.
+      </div>
     </div>
-    <div class="highlight-box">
+
+    <div class="highlight-card">
       <div class="highlight-number">03</div>
-      <div class="highlight-title">Eco-Friendly Spaces</div>
-      <div class="highlight-desc">The project incorporates landscaped gardens, green rooftops, and energy-efficient systems to ensure a sustainable, healthy, and serene living environment for residents.</div>
+      <div class="highlight-title">Green & Open Spaces</div>
+      <div class="highlight-desc">
+        Landscaped gardens, open walkways, and thoughtfully planned outdoor areas
+        create a refreshing and serene residential atmosphere.
+      </div>
     </div>
-    <div class="highlight-box">
+
+    <div class="highlight-card">
       <div class="highlight-number">04</div>
-      <div class="highlight-title">Advanced & Smart Living</div>
-      <div class="highlight-desc">With landscaped gardens and open areas, Dream Exotica provides a peaceful atmosphere where residents can relax, walk, and enjoy a refreshing outdoor environment.</div>
+      <div class="highlight-title">Secure & Smart Living</div>
+      <div class="highlight-desc">
+        Equipped with essential safety systems and modern infrastructure,
+        ensuring a secure and comfortable lifestyle for every resident.
+      </div>
     </div>
+
   </div>
 </section>
-
-<script>
-  // Scroll Animation
-  const boxes = document.querySelectorAll('.highlight-box');
-
-  function showBoxes() {
-    const triggerBottom = window.innerHeight * 0.85;
-
-    boxes.forEach(box => {
-      const boxTop = box.getBoundingClientRect().top;
-
-      if(boxTop < triggerBottom){
-        box.classList.add('visible');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', showBoxes);
-  window.addEventListener('load', showBoxes);
-</script>
             <center><a href="images/Dream Exotica_Brochure.pdf" class="btn-enquire-now">VIEW BROCHURE</a><centre>
                 <br>
                 <br>

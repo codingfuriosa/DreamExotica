@@ -829,16 +829,48 @@ html, body {
     color: #333; /* Custom text color applied */
   }
 
-  @media(max-width: 768px){
-    .highlights-grid {
-      grid-template-columns: 1fr;
-    }
-    .highlight-number {
-      font-size: 4rem;
-      top: 10px;
-      right: 10px;
-    }
+ @media(max-width: 768px){
+
+  .project-highlights {
+    margin: 40px 20px;
   }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-box {
+    aspect-ratio: 1 / 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+  }
+
+  /* Number top right */
+  .highlight-number {
+    position: absolute;
+    top: 00px;
+    right: 20px;
+    font-size: 4.5rem;
+  }
+
+  /* Heading centered */
+  .highlight-title {
+    margin-top: 80px; /* space below number */
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+
+  /* Paragraph pushed slightly toward bottom */
+  .highlight-desc {
+    margin-top: auto;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+}
 </style>
 </head>
 <body>
@@ -850,22 +882,22 @@ html, body {
     <div class="highlight-box">
       <div class="highlight-number">01</div>
       <div class="highlight-title">Prime Location</div>
-      <div class="highlight-desc">Centrally located with seamless access to schools, shopping centers, hospitals, and transport hubs, offering convenience and connectivity like no other.</div>
+      <div class="highlight-desc">Dream Exotica is well located with easy access to main roads, schools, hospitals, shopping areas, and daily essentials, offering convenience while maintaining a calm and comfortable residential setting.</div>
     </div>
     <div class="highlight-box">
       <div class="highlight-number">02</div>
       <div class="highlight-title">Architectural Excellence</div>
-      <div class="highlight-desc">Combining modern aesthetics with sustainable construction practices, the project features premium finishes, large open spaces, and innovative layouts designed for comfort and elegance.</div>
+      <div class="highlight-desc">The project features modern design with well-planned layouts, good ventilation, natural light, and practical spaces that create a comfortable and functional living environment.</div>
     </div>
     <div class="highlight-box">
       <div class="highlight-number">03</div>
-      <div class="highlight-title">Eco-Friendly & Green Spaces</div>
+      <div class="highlight-title">Eco-Friendly Spaces</div>
       <div class="highlight-desc">The project incorporates landscaped gardens, green rooftops, and energy-efficient systems to ensure a sustainable, healthy, and serene living environment for residents.</div>
     </div>
     <div class="highlight-box">
       <div class="highlight-number">04</div>
-      <div class="highlight-title">Advanced Security & Smart Living</div>
-      <div class="highlight-desc">With 24/7 surveillance, gated entry, and smart home integrations, residents enjoy peace of mind alongside modern conveniences that enhance everyday life.</div>
+      <div class="highlight-title">Advanced & Smart Living</div>
+      <div class="highlight-desc">With landscaped gardens and open areas, Dream Exotica provides a peaceful atmosphere where residents can relax, walk, and enjoy a refreshing outdoor environment.</div>
     </div>
   </div>
 </section>
@@ -1432,10 +1464,10 @@ document.addEventListener("DOMContentLoaded", function() {
 <section class="gallery-section" id="gallery-section">
   <h2 class="gallery-title">Gallery</h2>
   <div class="gallery-grid">
-    <img src="images/26.jpg" alt="Gallery Image 1">
-    <img src="images/27.jpg" alt="Gallery Image 2">
-    <img src="images/28.jpg" alt="Gallery Image 3">
-    <img src="images/29.jpg" alt="Gallery Image 4">
+    <img src="images/32.jpg" alt="Gallery Image 1">
+    <img src="images/33.jpg" alt="Gallery Image 2">
+    <img src="images/34.jpg" alt="Gallery Image 3">
+    <img src="images/35.jpg" alt="Gallery Image 4">
   </div>
 </section>
 
@@ -1651,7 +1683,6 @@ document.addEventListener("DOMContentLoaded", function() {
     background: #0d261a; /* premium brown */
     color: #fff;
     padding: 12px 18px;
-    border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     font-weight: bold;
     text-align: center;
@@ -1666,7 +1697,6 @@ document.addEventListener("DOMContentLoaded", function() {
       transform: translateY(-50%);
       writing-mode: vertical-rl;
       text-orientation: mixed;
-      border-radius: 8px 0 0 8px;
       cursor: pointer;
       height: 200px;
     }
@@ -1679,8 +1709,7 @@ document.addEventListener("DOMContentLoaded", function() {
       right: 0;
       bottom: 0;
       transform: none;
-      writing-mode: horizontal-tb;
-      border-radius: 12px 12px 0 0;
+      writing-mode: horizontal-tb;      
     }
   }
 
@@ -1772,13 +1801,13 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   .modal-content input:focus {
-    border-color: #6a4e42;
+    border-color: #0d261a;
   }
 
   .submit-btn {
     width: 100%;
     padding: 12px;
-    background: #6a4e42;
+    background: #0d261a;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -1787,13 +1816,13 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   .submit-btn:hover {
-    background: #543c32;
+    background: #0d261a;
   }
 
   .form-title {
   text-align: center;
   margin-bottom: 20px;
-  color: #6a4e42;
+  color: #0d261a;
   font-size: 20px;
   font-weight: bold;
 }

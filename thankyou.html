@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #f5f5f5, #e0e0e0);
+    color: #0d261a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .thank-you-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    color: #0d261a;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+
+  .credentials {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .credentials h3 {
+    margin-top: 0;
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+  }
+
+  .credentials p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+
+  .back-btn {
+    background: #0d261a;
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .back-btn:hover {
+    background: #3b1f0f;
+  }
+
+  footer {
+    padding: 20px;
+    text-align: center;
+    background: #f1f1f1;
+    color: #555;
+  }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 28px; }
+    p { font-size: 16px; }
+    .credentials { padding: 15px; }
+    .back-btn { padding: 12px 24px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="thank-you-container">
+    <h1>Thank You!</h1>
+    <p>Your enquiry has been successfully submitted. Our team will get in touch with you shortly.</p>
+
+    <br>
+    <br>
+
+    <button class="back-btn" id="backBtn">Back to Main Page</button>
+  </div>
+
+<footer style="background-color: #0d261a; color: white; font-family: Arial, sans-serif; padding: 50px 20px; box-sizing: border-box;">
+
+  <div class="footer-container" style="
+      display: flex;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+      flex-wrap: nowrap;  /* Desktop: no wrap */
+  ">
+
+    <!-- Head Office -->
+    <div class="footer-left" style="
+        min-width: 280px;
+        text-align: left;
+    ">
+      <h3 class="footer-heading" style="margin:0 0 10px 0; font-weight:bold; font-size:22px; border-bottom:3px solid #caa14a; display:inline-block; padding-bottom:6px;">Head Office</h3>
+      <p class="footer-text" style="margin:0; font-size:16px; line-height:1.7;">
+        Jain Tower, 44/2A, Hazra Road<br>
+        Near Dover Road Crossing, Kolkata - 700019
+      </p>
+    </div>
+
+    <!-- Dream Exotica Project Location -->
+    <div class="footer-right" style="
+        min-width: 280px;
+        text-align: right;
+    ">
+      <h3 class="footer-heading" style="margin:0 0 10px 0; font-weight:bold; font-size:22px; border-bottom:3px solid #caa14a; display:inline-block; padding-bottom:6px;">Dream Exotica</h3>
+      <p class="footer-text" style="margin:0; font-size:16px; line-height:1.7;">
+        Badu Road, Madhyamgram<br>
+        Kolkata, West Bengal – 700129, India
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Bottom copyright -->
+  <div style="text-align:center; margin-top:10px; font-size:14px; opacity:0.8; margin-bottom: 20px ;">
+    &copy; 2026 Dream Exotica. All Rights Reserved.
+  </div>
+
+</footer>
+
+<!-- Responsive adjustments -->
+<style>
+  @media screen and (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;  /* Stack vertically */
+      align-items: center;     /* Center container items */
+    }
+
+    .footer-left,
+    .footer-right {
+      text-align: center !important;  /* Force text center */
+      min-width: auto !important;      /* Remove fixed width */
+      margin-bottom: 20px;
+    }
+
+    .footer-heading {
+      display: block; /* Ensures heading spans full width in mobile */
+      margin: 0 auto 10px auto;
+    }
+
+    .footer-text {
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<script>
+  // Get submitted data from localStorage
+  document.addEventListener("DOMContentLoaded", function() {
+    const name = localStorage.getItem("leadName") || "N/A";
+    const phone = localStorage.getItem("leadPhone") || "N/A";
+    const email = localStorage.getItem("leadEmail") || "N/A";
+
+    document.getElementById("credName").textContent = name;
+    document.getElementById("credPhone").textContent = phone;
+    document.getElementById("credEmail").textContent = email;
+
+    document.getElementById("backBtn").addEventListener("click", function() {
+      window.location.href = "index.html"; // Replace with your main page
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -693,7 +693,7 @@ html, body {
         <h2>Dream Exotica</h2>
        
         <p>
-          Located in the fast-growing neighborhood of Madhyamgram, Dream Exotica by Jain Group offers a thoughtfully designed residential community inspired by elegant Singaporean living. Blending contemporary architecture with traditional warmth, the project creates a serene and comfortable environment for families seeking both style and functionality.
+          Located in the fast-growing neighborhood of Madhyamgram, Dream Exotica by Jain Group offers a thoughtfully designed residential community inspired by elegant Singaporean living.
         </p>
 
         <!-- METRICS GRID -->
@@ -752,123 +752,147 @@ html, body {
   </section>
 
 <style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f9f9f9;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  .project-highlights {
-    max-width: 1200px;
-    margin: 80px;
-    padding: 0px;
-    text-align: center;
-  }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
 
-  .project-highlights h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #333;
-  }
+.project-highlights {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
 
-  .project-highlights p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 60px;
-  }
+.project-highlights h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #333;
+}
 
+/* ================= GRID ================= */
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* ================= CARD ================= */
+
+.highlight-box {
+  position: relative;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.highlight-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Big Number */
+
+.highlight-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(4,106,56,0.18);
+  pointer-events: none;
+}
+
+/* Title */
+
+.highlight-title {
+  margin-top: 100px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d261a;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Description */
+
+.highlight-desc {
+  margin-top: auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
   .highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 30px;
   }
+}
 
-  .highlight-box {
-    position: relative;
-    background: #fff;
-    padding: 35px 30px;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-  }
+/* ================= MOBILE ================= */
 
-  .highlight-box.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .highlight-number {
-    position: absolute;
-    font-size: 6rem;
-    font-weight: 800;
-    color: rgba(4,106,56,0.25); /* less faded than before */
-    top: 20px;
-    right: 20px;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .highlight-title {
-    position: relative;
-    z-index: 1;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #0d261a;
-    margin-bottom: 12px;
-  }
-
-  .highlight-desc {
-    position: relative;
-    z-index: 1;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333; /* Custom text color applied */
-  }
-
- @media(max-width: 768px){
-
-  .project-highlights {
-    margin: 40px 20px;
-  }
+@media (max-width: 768px) {
 
   .highlights-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 
   .highlight-box {
-    aspect-ratio: 1 / 1;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    text-align: center;
+    min-height: 380px; /* Flexible instead of strict square */
+    padding: 30px 25px;
   }
 
-  /* Number top right */
   .highlight-number {
-    position: absolute;
-    top: 00px;
-    right: 20px;
-    font-size: 4.5rem;
+    font-size: 4rem;
+    top: 15px;
+    right: 15px;
   }
 
-  /* Heading centered */
   .highlight-title {
-    margin-top: 80px; /* space below number */
-    font-size: 1.7rem;
-    margin-bottom: 20px;
+    margin-top: 90px;
+    font-size: 1.6rem;
   }
 
-  /* Paragraph pushed slightly toward bottom */
   .highlight-desc {
-    margin-top: auto;
-    margin-bottom: 30px;
     font-size: 1.05rem;
-    line-height: 1.7;
+    margin-top: auto;
+  }
+}
+
+/* ================= SMALL DEVICES ================= */
+
+@media (max-width: 400px) {
+
+  .highlight-box {
+    min-height: 420px;
+  }
+
+  .highlight-title {
+    font-size: 1.8rem;
+    margin-top: 80px
+  }
+
+  .highlight-desc {
+    font-size: 1.1rem;
   }
 }
 </style>
@@ -877,7 +901,6 @@ html, body {
 
 <section class="project-highlights">
   <h2>Project Highlights</h2>
-  <p>Explore the unique selling points that make this project stand out and deliver a truly premium living experience.</p>
   <div class="highlights-grid">
     <div class="highlight-box">
       <div class="highlight-number">01</div>
@@ -950,11 +973,6 @@ html, body {
     </div>
 
     <div class="amenity-card">
-      <i class="fas fa-tree"></i>
-      <p>Landscaped Gardens</p>
-    </div>
-
-    <div class="amenity-card">
       <i class="fas fa-dumbbell"></i>
       <p>Gymnasium</p>
     </div>
@@ -980,18 +998,8 @@ html, body {
     </div>
 
     <div class="amenity-card">
-      <i class="fas fa-running"></i>
-      <p>Jogging Track</p>
-    </div>
-
-    <div class="amenity-card">
       <i class="fas fa-chess"></i>
       <p>Indoor Games</p>
-    </div>
-
-    <div class="amenity-card">
-      <i class="fas fa-building"></i>
-      <p>Club House</p>
     </div>
 
     <div class="amenity-card">
@@ -1017,11 +1025,6 @@ html, body {
     <div class="amenity-card">
       <i class="fas fa-parking"></i>
       <p>Car Parking</p>
-    </div>
-
-    <div class="amenity-card">
-      <i class="fas fa-cloud-rain"></i>
-      <p>Rain Water Harvesting</p>
     </div>
 
     <div class="amenity-card">
@@ -1133,7 +1136,7 @@ html, body {
 
 <!-- UNIT CONFIGURATIONS SECTION: Insert this after the <section class="amenity-grid"> -->
 <section id="project-configuration-section">
-<div class="header" style="margin-top: 60px; text-align: center;">
+<div class="header" style="margin-top: 60px; margin-left: 20px; margin-right: 20px; text-align: center;">
   <h1 style="font-size: 2.2rem; font-weight: 700; color: #333;">Project Configurations</h1>
   <p style="font-size: 1.1rem; color: #666;">Estimated Super Built-Up Area (SBA)</p>
 </div>
@@ -1238,7 +1241,7 @@ html, body {
   <div class="plans-header">
     <h2>Plans</h2>
     <p>
-      Explore the master layout and floor plans of Dream Exotica, featuring modern Studio, 2 & 3 BHK apartments with functional layouts and landscaped open spaces.
+      Explore the master layout and floor plans of Dream Exotica
     </p>
   </div>
 
@@ -1543,7 +1546,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <!-- Hospitals -->
       <h3>Hospitals</h3>
       <ul>
-        <li><strong>Vivacity Multi Speciality Hospital</strong> – 2.5 km</li>
+        <li><strong>Vivacity Speciality Hospital</strong> – 2.5 km</li>
         <li><strong>Florida Hospital</strong> – 3 km</li>
         <li><strong>Heartland Hospital</strong> – 2 km</li>
       </ul>
@@ -1551,25 +1554,25 @@ document.addEventListener("DOMContentLoaded", function() {
       <!-- Education -->
       <h3>Educational Institutions</h3>
       <ul>
-        <li><strong>Orchids The International School Madhyamgram</strong> – 2.5 km</li>
-        <li><strong>Monalisa English School,Madhyamgram</strong> – 2 km</li>
+        <li><strong>Orchids The International </strong> – 2.5 km</li>
+        <li><strong>Monalisa English School</strong> – 2 km</li>
         <li><strong>Sudhir Memorial Institute</strong> – 3 km</li>
       </ul>
 
       <!-- Transport -->
       <h3>Transportation</h3>
       <ul>
-        <li><strong>Madhyamgram Railway Station</strong> – 2.4 km</li>
-        <li><strong>Madhyamgram Chowmatha Bus Stop</strong> – 2.5 km</li>
+        <li><strong>Madhyamgram Railway </strong> – 2.4 km</li>
+        <li><strong>Madhyamgram Bus Stop</strong> – 2.5 km</li>
         <li><strong>Jessore Road Bus Stop</strong> – 3 km</li>
       </ul>
 
       <!-- Dining -->
       <h3>Dining Options</h3>
       <ul>
-        <li><strong>Portobello Cafe Madhyamgram</strong> – 2.5 km</li>
+        <li><strong>Portobello Cafe </strong> – 2.5 km</li>
         <li><strong>Desi Lane</strong> – 3 km</li>
-        <li><strong>Star Mall Food Court & Restaurants</strong> – 4 km</li>
+        <li><strong>Star Mall Restaurants</strong> – 4 km</li>
       </ul>
     </div>
   </div>
@@ -1767,7 +1770,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   .mobile-text {
     gap: 30px; /* space between enquire & phone block */
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
   }
 
@@ -1993,7 +1996,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)+$/;
 
     if (!nameRegex.test(name)) {
-      alert("Please enter your full name (First and Last name, alphabets only).");
+      alert("Please enter your full name (First and Last name, alphabets only).");      
       return;
     }
 
@@ -2081,7 +2084,7 @@ window.addEventListener("scroll", function () {
   </div>
 
   <!-- Bottom copyright -->
-  <div style="text-align:center; margin-top:30px; font-size:14px; opacity:0.8;">
+  <div style="text-align:center; margin-top:10px; font-size:14px; opacity:0.8; margin-bottom: 20px ;">
     &copy; 2026 Dream Exotica. All Rights Reserved.
   </div>
 

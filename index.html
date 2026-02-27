@@ -56,18 +56,83 @@ html, body {
 
         /* -------------------------------------- */
         /* 1. STICKY HEADER / NAVIGATION */
-        /* -------------------------------------- */
-        #main-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 1);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            padding: 18px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* -------------------------------------- *//* --------------------------------
+   NAVBAR STYLING
+----------------------------------*/
+/* Navbar over hero: fully transparent */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent; /* fully transparent */
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    height: 10vh;
+}
+
+/* Navbar links */
+#main-header .navbar a {
+    color: #000; /* black links */
+    transition: color 0.4s ease;
+}
+
+/* subtle white fade with blur when scrolled */
+#main-header.scrolled {
+    background: rgba(255, 255, 255, 0.25); /* semi-transparent white */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px); /* frosted glass effect */
+    -webkit-backdrop-filter: blur(8px); /* for Safari support */
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Links remain black after scroll */
+#main-header.scrolled .navbar a {
+    color: #000;
+
+}
+
+/* Keep flex spacing consistent on scroll */
+#main-header, #main-header.scrolled {
+    display: flex;
+    justify-content: space-between; /* keeps logo & menu at edges */
+    align-items: center;
+}
+
+/* --------------------------------
+   HERO SECTION
+----------------------------------*/
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+}
+
+/* Overlay for readability if needed */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+/* Hero content above overlay */
+.hero-content {
+    z-index: 2;
+    color: #fff;
+}
 
         .logo-img {
             height: 40px;
@@ -131,18 +196,11 @@ html, body {
         /* 2. HERO SECTION / BANNER */
         /* -------------------------------------- */
         .hero-section {
-            position: relative;
-            width: 100%;
-            /* *** PLACEHOLDER IMAGE: Replace this URL with the direct link to your main banner image. *** The current image is a placeholder for a modern business park facade.
-            */
-            background: url('https://wallpapers.com/images/hd/real-estate-aesthetic-image-px8ok9r7ygztftoo.jpg') no-repeat center center/cover;
-            height: 75vh;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            padding-left: 8%;
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.25);
-        }
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 120vh;
+}
 
         .hero-content {
             z-index: 2;
@@ -557,7 +615,7 @@ html, body {
             }
 
             .hero-section {
-                height: 60vh;
+                height: 100vh;
                 padding-left: 5%;
                 padding-top: 0;
             }
@@ -683,6 +741,61 @@ html, body {
         </div>
     </main>
 
+    <script>
+const header = document.getElementById("main-header");
+
+// Trigger white fade even if scrolled just 1px
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {  // any scroll at all
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled"); // fully transparent at very top
+    }
+});
+
+// Optional: set hero images for desktop/mobile
+function setHeroImage() {
+    const hero = document.querySelector(".hero-section");
+    if (window.innerWidth <= 768) {
+        hero.style.backgroundImage = "url('images/41.png')";
+    } else {
+        hero.style.backgroundImage = "url('images/40.png')";
+    }
+}
+
+// Initial load
+setHeroImage();
+
+// Update on window resize
+window.addEventListener("resize", setHeroImage);
+</script>
+
+<script>
+function setHeroImage() {
+    const hero = document.querySelector(".hero-section");
+    if (window.innerWidth <= 768) {
+        hero.style.backgroundImage = "url('images/41.png')";
+    } else {
+        hero.style.backgroundImage = "url('images/40.png')";
+    }
+}
+
+// Initial load
+setHeroImage();
+
+// Update on window resize
+window.addEventListener("resize", setHeroImage);
+</script>
+
+    <script>
+window.addEventListener("scroll", function() {
+    const header = document.getElementById("main-header");
+    const hero = document.querySelector(".hero-section");
+    const heroHeight = hero.offsetHeight;
+
+});
+</script>
+
  <!-- PROJECT OVERVIEW / DETAILS SECTION -->
 <section id="overview-section">
   <section class="about-section" id="about-section">
@@ -690,10 +803,10 @@ html, body {
      
       <!-- Text + Metrics -->
       <div class="about-text">
-        <h2>Dream Exotica</h2>
+        <h2> Project Overview</h2>
        
         <p>
-          Located in the fast-growing neighborhood of Madhyamgram, Dream Exotica by Jain Group offers a thoughtfully designed residential community inspired by elegant Singaporean living.
+          <b>Dream Exotica in Madhyamgram</b> is a premium residential development by <b>Jain Group</b>, designed for families who want modern comfort without leaving the city’s growth corridor. 
         </p>
 
         <!-- METRICS GRID -->
@@ -926,7 +1039,7 @@ body {
       <div class="highlight-number">03</div>
       <div class="highlight-title">Connected Locations</div>
       <div class="highlight-desc">
-        Located in Madhyamgram, the project offers good road access, nearby hospitals and shopping areas, airport connectivity, and close proximity to the proposed metro.
+        Located just minutes from Madhyamgram Chowrasta, the project offers good road access, nearby hospitals and shopping areas, airport connectivity, and close proximity to the proposed metro.
       </div>
     </div>
 
@@ -1792,7 +1905,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   .mobile-text i {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .enquiry-bar {
@@ -1897,7 +2010,7 @@ document.addEventListener("DOMContentLoaded", function() {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
 
 .enquire-click {
@@ -1923,8 +2036,8 @@ document.addEventListener("DOMContentLoaded", function() {
   <span class="divider"></span>
 
   <a href="tel:8617258726" class="call-click">
-    <i class="fas fa-phone-alt"></i> 8617258726
-  </a>
+    <i class="fas fa-phone"></i> 8617258726
+</a>
 
 </span>
 </div>

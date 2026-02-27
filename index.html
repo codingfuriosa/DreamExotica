@@ -1464,14 +1464,10 @@ document.addEventListener("DOMContentLoaded", function() {
 <section class="gallery-section" id="gallery-section">
   <h2 class="gallery-title">Gallery</h2>
   <div class="gallery-grid">
-    <img src="images/32.JPG" alt="Gallery Image 1">
-    <img src="images/33.JPG" alt="Gallery Image 2">
-    <img src="images/34.JPG" alt="Gallery Image 3">
-    <img src="images/35.JPG" alt="Gallery Image 4">
-    <img src="images/36.JPG" alt="Gallery Image 5">
-    <img src="images/37.JPG" alt="Gallery Image 6">
-    <img src="images/38.JPG" alt="Gallery Image 7">
-    <img src="images/39.JPG" alt="Gallery Image 8">
+    <img src="images/32.jpg" alt="Gallery Image 1">
+    <img src="images/33.jpg" alt="Gallery Image 2">
+    <img src="images/34.jpg" alt="Gallery Image 3">
+    <img src="images/35.jpg" alt="Gallery Image 4">
   </div>
 </section>
 
@@ -1760,6 +1756,36 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  /* Improve mobile enquiry spacing */
+@media (max-width: 768px) {
+
+  .mobile-text span {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px; /* space between icon and text */
+  }
+
+  .mobile-text {
+    gap: 30px; /* space between enquire & phone block */
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .divider {
+    height: 30px;
+    opacity: 1;
+    width: 2PX;
+  }
+
+  .mobile-text i {
+    font-size: 25px;
+  }
+
+  .enquiry-bar {
+    padding: 14px 20px; /* slightly more breathing room */
+  }
+}
+
 
   /* =======================
      FORM MODAL CSS (NEW)
@@ -1852,6 +1878,21 @@ document.addEventListener("DOMContentLoaded", function() {
     border: 1px solid #5a3e2b;
 }
 
+.mobile-text a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.enquire-click {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
 </style>
 
 
@@ -1859,11 +1900,19 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="enquiry-bar" id="enquiryBar">
   <span class="desktop-text">ENQUIRE NOW</span>
 
-  <span class="mobile-text">
-    <span>Enquire Now</span>
-    <span class="divider"></span>
-    <span>+91 8617258726</span>
+<span class="mobile-text">
+
+  <span class="enquire-click">
+    <i class="fas fa-clipboard-list"></i> Enquire Now
   </span>
+
+  <span class="divider"></span>
+
+  <a href="tel:8617258726" class="call-click">
+    <i class="fas fa-phone-alt"></i> 8617258726
+  </a>
+
+</span>
 </div>
 
 
@@ -1899,10 +1948,27 @@ document.addEventListener("DOMContentLoaded", function() {
   const closeBtn = document.getElementById("closeModal");
   const form = document.getElementById("enquireForm");
 
-  enquiryBar.addEventListener("click", function() {
+  const enquireClick = document.querySelector(".enquire-click");
+
+  /* =========================
+     DESKTOP CLICK (Whole Bar)
+  ========================== */
+  enquiryBar.addEventListener("click", function(e) {
+
+    // If clicking phone link, don't open modal
+    if (e.target.closest(".call-click")) return;
+
+    // On mobile, only Enquire text opens modal
+    if (window.innerWidth <= 768) {
+      if (!e.target.closest(".enquire-click")) return;
+    }
+
     modal.style.display = "flex";
   });
 
+  /* =========================
+     CLOSE MODAL
+  ========================== */
   closeBtn.addEventListener("click", function() {
     modal.style.display = "none";
   });
@@ -1913,6 +1979,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  /* =========================
+     FORM SUBMIT VALIDATION
+  ========================== */
   form.addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -1920,10 +1989,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const phone = document.getElementById("phone").value.trim();
     const email = document.getElementById("email").value.trim();
 
-    /* ======================
-       NAME VALIDATION
-    ====================== */
-
+    /* NAME VALIDATION */
     const nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)+$/;
 
     if (!nameRegex.test(name)) {
@@ -1936,12 +2002,8 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    /* ======================
-       PHONE VALIDATION
-    ====================== */
-
+    /* PHONE VALIDATION */
     const cleanedPhone = phone.replace(/\s+/g, "");
-
     const phoneRegex = /^(\+91)?[6-9]\d{9}$/;
 
     if (!phoneRegex.test(cleanedPhone)) {
@@ -1949,10 +2011,7 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    /* ======================
-       EMAIL VALIDATION
-    ====================== */
-
+    /* EMAIL VALIDATION */
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     if (!emailRegex.test(email)) {
@@ -1962,17 +2021,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     alert("Thank you for your enquiry. Our team will contact you shortly.");
 
-/* Save lead status */
-localStorage.setItem("leadCaptured", "true");
-
-/* Refresh page */
-location.reload();
+    localStorage.setItem("leadCaptured", "true");
+    location.reload();
   });
 
 });
 
 </script>
-
 <script>
 const button = document.querySelector(".enquiry-btn");
 const footer = document.querySelector("footer");
@@ -2080,7 +2135,4 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
-
-
-
 

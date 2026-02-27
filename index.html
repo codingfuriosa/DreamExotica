@@ -944,7 +944,11 @@ body {
 
   </div>
 </section>
-            <center><a href="images/Dream Exotica_Brochure.pdf" class="btn-enquire-now">VIEW BROCHURE</a><centre>
+            <center>
+  <a href="#" id="brochureBtn" class="btn-enquire-now">
+    VIEW BROCHURE
+  </a>
+</center>
                 <br>
                 <br>
 
@@ -1943,25 +1947,21 @@ document.addEventListener("DOMContentLoaded", function() {
 ======================= -->
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function() {
 
   const enquiryBar = document.getElementById("enquiryBar");
   const modal = document.getElementById("enquireModal");
   const closeBtn = document.getElementById("closeModal");
   const form = document.getElementById("enquireForm");
-
-  const enquireClick = document.querySelector(".enquire-click");
+  const brochureBtn = document.getElementById("brochureBtn");
 
   /* =========================
-     DESKTOP CLICK (Whole Bar)
+     ENQUIRY BAR CLICK
   ========================== */
   enquiryBar.addEventListener("click", function(e) {
 
-    // If clicking phone link, don't open modal
     if (e.target.closest(".call-click")) return;
 
-    // On mobile, only Enquire text opens modal
     if (window.innerWidth <= 768) {
       if (!e.target.closest(".enquire-click")) return;
     }
@@ -1983,6 +1983,23 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   /* =========================
+     BROCHURE BUTTON LOGIC
+  ========================== */
+  if (brochureBtn) {
+    brochureBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const leadDone = localStorage.getItem("leadCaptured");
+
+      if (leadDone === "true") {
+        window.open("images/Dream Exotica_Brochure.pdf", "_blank");
+      } else {
+        modal.style.display = "flex";
+      }
+    });
+  }
+
+  /* =========================
      FORM SUBMIT VALIDATION
   ========================== */
   form.addEventListener("submit", function(e) {
@@ -1992,45 +2009,37 @@ document.addEventListener("DOMContentLoaded", function() {
     const phone = document.getElementById("phone").value.trim();
     const email = document.getElementById("email").value.trim();
 
-    /* NAME VALIDATION */
     const nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)+$/;
-
-    if (!nameRegex.test(name)) {
-      alert("Please enter your full name (First and Last name, alphabets only).");      
+    if (!nameRegex.test(name) || name.length < 5) {
+      alert("Please enter your proper full name.");
       return;
     }
 
-    if (name.length < 5) {
-      alert("Name seems too short. Please enter your proper full name.");
-      return;
-    }
-
-    /* PHONE VALIDATION */
     const cleanedPhone = phone.replace(/\s+/g, "");
     const phoneRegex = /^(\+91)?[6-9]\d{9}$/;
-
     if (!phoneRegex.test(cleanedPhone)) {
-      alert("Please enter a valid Indian mobile number.\nExample: 9876543210 or +919876543210");
+      alert("Please enter a valid Indian mobile number.");
       return;
     }
 
-    /* EMAIL VALIDATION */
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address (example@gmail.com).");
+      alert("Please enter a valid email address.");
       return;
     }
+
+    // ✅ SAVE LEAD
+    localStorage.setItem("leadCaptured", "true");
 
     alert("Thank you for your enquiry. Our team will contact you shortly.");
 
-    localStorage.setItem("leadCaptured", "true");
-    location.reload();
+    modal.style.display = "none";
+
   });
 
 });
-
 </script>
+
 <script>
 const button = document.querySelector(".enquiry-btn");
 const footer = document.querySelector("footer");

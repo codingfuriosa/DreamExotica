@@ -7,226 +7,193 @@
     <!-- Using Poppins (Modern, Clean, Professional) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/30.png">
-    <style>
-        /* CSS Reset and Global Styles */
-        :root {
-            --primary-color: #0d261a; /* Key Accent: Rich Orange/Red */
-            --dark-color: #2c3e50;    /* Deep Navy/Dark Gray for Text/Borders */
-            --light-color: #ffffff;
-            --subtle-gray: #f4f4f4;
-            --text-color-primary: #333333;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-color); /* Clean white background */
-            line-height: 1.6;
-            color: var(--text-color-primary);
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--dark-color);
-            transition: all 0.3s ease;
-        }
-       
-        .container {
-            width: 90%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* Universal Fix */
+   <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
+body {
+  overflow-x: hidden;
 }
 
-        /* -------------------------------------- */
-        /* 1. STICKY HEADER / NAVIGATION */
-        /* -------------------------------------- *//* --------------------------------
-   NAVBAR STYLING
-----------------------------------*/
-/* Navbar over hero: fully transparent */
-#main-header {
+/* ================= NAVBAR ================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+/* Blur only — no white fade */
+.navbar.scrolled {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Logo */
+.logo img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Nav Links Desktop */
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+/* Contact Button */
+.contact-number {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #eaeaea;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.contact-number:hover {
+  transform: translateY(-2px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* ================= HERO (UNCHANGED) ================= */
+
+.hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url('images/40.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ================= CONTENT ================= */
+
+.content {
+  min-height: 120vh;
+  background: #f5f5f5;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 16px 22px;
+  }
+
+  .logo img {
+    height: 52px;
+  }
+
+  .contact-number {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Menu opens BELOW navbar */
+  .nav-links {
     position: fixed;
-    top: 0;
+    top: 80px; /* height of navbar */
     left: 0;
     width: 100%;
-    z-index: 1000;
-    background-color: transparent; /* fully transparent */
-    padding: 18px 60px;
-    display: flex;
-    justify-content: space-between;
+    height: 450px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    flex-direction: column;
     align-items: center;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
-    height: 10vh;
-}
+    justify-content: flex-start;
 
-/* Navbar links */
-#main-header .navbar a {
-    color: #000; /* black links */
-    transition: color 0.4s ease;
-}
+    padding-top: 30px;
+    gap: 0;
 
-/* subtle white fade with blur when scrolled */
-#main-header.scrolled {
-    background: rgba(255, 255, 255, 0.25); /* semi-transparent white */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(8px); /* frosted glass effect */
-    -webkit-backdrop-filter: blur(8px); /* for Safari support */
-    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
-}
+    transform: translateY(-120%);
+    transition: 0.4s ease;
+  }
 
-/* Links remain black after scroll */
-#main-header.scrolled .navbar a {
-    color: #000;
+  .nav-links.active {
+    transform: translateY(0);
+  }
 
-}
+  /* Premium divided links */
+  .nav-links a {
+    width: 85%;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
 
-/* Keep flex spacing consistent on scroll */
-#main-header, #main-header.scrolled {
-    display: flex;
-    justify-content: space-between; /* keeps logo & menu at edges */
-    align-items: center;
-}
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
 
-/* --------------------------------
-   HERO SECTION
-----------------------------------*/
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: 75vh;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.3s ease;
-}
-
-/* Overlay for readability if needed */
-.hero-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.15);
-    z-index: 1;
-}
-
-/* Hero content above overlay */
-.hero-content {
-    z-index: 2;
-    color: #fff;
-}
-
-        .logo-img {
-            height: 40px;
-            width: auto;
-            margin-left: -10px;
-        }
-
-        .navbar {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .navbar a {
-            position: relative;
-        }
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #0d261a;
-            transition: width 0.3s ease-out;
-        }
-
-        .navbar a:hover {
-            color: #0d261a;
-        }
-        .navbar a:hover::after {
-            width: 100%;
-        }
-
-
-        .contact-info {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #333;
-            background-color: var(--subtle-gray);
-            padding: 8px 15px;
-            border-radius: 20px;
-        }
-        .phone-icon {
-            margin-right: 8px;
-            font-size: 1.1rem;
-        }
-
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            font-size: 28px;
-            color: var(--dark-color);
-        }
-
-        /* -------------------------------------- */
-        /* 2. HERO SECTION / BANNER */
-        /* -------------------------------------- */
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;              /* Perfect full screen */
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
-
-    background-size: cover;     /* IMPORTANT */
+  /* Hero mobile image switch works again */
+  .hero {
+    aspect-ratio: 9 / 16;
+    background-image: url('images/41.png');
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+  }
 }
-
-        .hero-content {
-            z-index: 2;
-            color: var(--light-color);
-        }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 45px;
-            text-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
-        }
 
         .btn-book-visit, .btn-enquire-now {
             display: inline-block;
             padding: 18px 45px;
             background-color: #0d261a;
-            color: var(--light-color);
+            color: white;
             text-transform: uppercase;
             font-weight: 700;
             font-size: 1.05rem;
@@ -584,55 +551,6 @@ html, body {
         }
        
         @media (max-width: 992px) {
-            #main-header {
-                padding: 15px 30px;
-            }
-           
-            .navbar {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 0;
-                width: 100%;
-                background-color: var(--light-color);
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-                border-top: 1px solid var(--subtle-gray);
-            }
-           
-            .navbar.active {
-                display: flex;
-            }
-
-            .navbar a {
-                padding: 18px 30px;
-                border-bottom: 1px solid var(--subtle-gray);
-                width: 100%;
-                text-align: center;
-                font-weight: 400;
-            }
-            .navbar a::after { content: none; }
-           
-            .contact-info {
-                display: none;
-            }
-
-            .hamburger-menu {
-                display: block;
-            }
-
-            .hero-section {
-                height: 100vh;
-                padding-left: 5%;
-                padding-top: 0;
-            }
-           
-            .hero-content h1 {
-                font-size: 2.5rem;
-                margin-bottom: 25px;
-                line-height: 1.2;
-            }
-           
             .highlight-cards-grid {
                 grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
                 gap: 20px;
@@ -708,100 +626,69 @@ html, body {
 }
 
 
-    </style>
-</head>
+
+</style>
+
 <body>
 
-    <!-- STICKY NAVIGATION BAR -->
-    <header id="main-header">
-        <div class="logo-container">
-            <!-- Placeholder for your logo. Use a white background for better integration. -->
-            <img src="images/30.png"
-                 alt="Company Logo"
-                 class="logo-img">
-        </div>
+<header class="navbar" id="navbar">
 
-        <nav class="navbar" id="navbar-links">
-  <a href="#overview-section">OVERVIEW</a>
-  <a href="#highlights-section">HIGHLIGHTS</a>
-  <a href="#amenities-section">AMENITIES</a>
-  <a href="#project-configuration-section">PROJECT CONFIGURATION</a>
-  <A href="#plans-section">PLANS</a>
-  <a href="#gallery-section">GALLERY</a>
-  <a href="#location-section">LOCATION</a>
-</nav>
-       
-        <div class="contact-info">
-            <span class="phone-icon">&#9742;</span> <!-- Phone Icon -->
-            <span class="phone-number">+91 8617258726</span>
-        </div>
+  <div class="logo">
+    <img src="images/30.png" alt="Logo">
+  </div>
 
-        <!-- HAMBURGER MENU ICON (Displayed only on mobile) -->
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            &#9776;
-        </div>
-    </header>
+  <nav class="nav-links" id="navLinks">
+    <a href="#">Overview</a>
+    <a href="#">Highlights</a>
+    <a href="#">Amenities</a>
+    <a href="#">Configuration</a>
+    <a href="#">Plan</a>
+    <a href="#">Gallery</a>
+    <a href="#">Location</a>
+  </nav>
 
-    <!-- MAIN HERO SECTION -->
-    <main class="hero-section">
-        <div class="hero-content">
-        </div>
-    </main>
+  <div class="contact-number">
+  <i class="fas fa-phone"></i>
+  +91 98765 43210
+</div>
 
-    <script>
-const header = document.getElementById("main-header");
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-// Trigger white fade even if scrolled just 1px
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {  // any scroll at all
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled"); // fully transparent at very top
-    }
-});
+</header>
 
-// Optional: set hero images for desktop/mobile
-function setHeroImage() {
-    const hero = document.querySelector(".hero-section");
-    if (window.innerWidth <= 768) {
-        hero.style.backgroundImage = "url('images/41.png')";
-    } else {
-        hero.style.backgroundImage = "url('images/40.png')";
-    }
-}
-
-// Initial load
-setHeroImage();
-
-// Update on window resize
-window.addEventListener("resize", setHeroImage);
-</script>
+<section class="hero"></section>
 
 <script>
-function setHeroImage() {
-    const hero = document.querySelector(".hero-section");
-    if (window.innerWidth <= 768) {
-        hero.style.backgroundImage = "url('images/41.png')";
-    } else {
-        hero.style.backgroundImage = "url('images/40.png')";
-    }
-}
+const navbar = document.getElementById("navbar");
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
 
-// Initial load
-setHeroImage();
+/* Blur on scroll */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
 
-// Update on window resize
-window.addEventListener("resize", setHeroImage);
-</script>
+/* Toggle menu */
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
 
-    <script>
-window.addEventListener("scroll", function() {
-    const header = document.getElementById("main-header");
-    const hero = document.querySelector(".hero-section");
-    const heroHeight = hero.offsetHeight;
-
+/* Close when clicking a link */
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
 });
 </script>
+
 
  <!-- PROJECT OVERVIEW / DETAILS SECTION -->
 <section id="overview-section">
@@ -941,7 +828,7 @@ body {
   position: absolute;
   top: 10px;
   right: 20px;
-  font-size: 95px;  
+  font-size: 75px;  
   font-weight: 700;
   color: rgba(34, 139, 94, 0.40); /* faded green */
   z-index: 0;
@@ -2296,5 +2183,3 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
-
-

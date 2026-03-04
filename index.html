@@ -27,8 +27,8 @@ body {
   width: 100%;
   padding: 18px 60px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background: transparent;
   transition: all 0.4s ease;
   z-index: 1000;
@@ -51,6 +51,15 @@ body {
 .nav-links {
   display: flex;
   gap: 40px;
+  margin: 0 auto;   /* THIS centers the links block */
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.contact-number {
+  flex-shrink: 0;
 }
 
 .nav-links a {
@@ -2186,5 +2195,6 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 

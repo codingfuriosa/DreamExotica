@@ -41,6 +41,12 @@ body {
   background: rgba(255,255,255,0.05);
 }
 
+/* Logo */
+.logo img {
+  height: 60px;
+  object-fit: contain;
+}
+
 /* Nav Links Desktop */
 .nav-links {
   display: flex;
@@ -69,7 +75,7 @@ body {
   background: #eaeaea;
   padding: 12px 24px;
   border-radius: 40px;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
   transition: 0.3s ease;
 }
@@ -120,6 +126,10 @@ body {
 
   .navbar {
     padding: 16px 22px;
+  }
+
+  .logo img {
+    height: 52px;
   }
 
   .contact-number {
@@ -584,12 +594,40 @@ body {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+            .logo-img {
+                margin-right: ;
+            }
         }
 
-       .logo {
-           margin right:200px;
-           height:15px
-       }
+ /* Logo Container */
+.logo-container {
+  height: 60px;             /* Navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* Center horizontally */
+  overflow: visible;        /* So scaled logo isn’t clipped */
+}
+
+/* Logo Image */
+.logo-img {
+  max-height: 50px;         /* Original height limit */
+  width: auto;
+  scale: 1.6;               /* Enlarges logo visually */
+  transform-origin: center; /* Center scale so logo doesn’t shift left */
+  transition: all 0.3s ease;
+  margin-right:200px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .logo-img {
+    height: 80px;
+    scale: 1;              /* Optional: reset scaling for small screens */
+  }
+}
+
+
+
 </style>
 
 <body>
@@ -2146,7 +2184,4 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
-
-
-
 

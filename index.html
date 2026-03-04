@@ -19,42 +19,45 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= NAVBAR STRUCTURE ================= */
+/* ========================= */
+/* 🔥 COMPLETE RESPONSIVE NAVBAR */
+/* ========================= */
 
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 18px 60px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  height: 80px;
+  padding: 0 60px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  background: white;
   z-index: 1000;
-  transition: all 0.4s ease;
+  transition: 0.3s ease;
 }
 
-/* Blur on scroll */
+/* Blur effect when scrolled */
 .navbar.scrolled {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.9);
 }
 
 /* Logo */
 .logo img {
-  height: 60px;
+  height: 55px;
   width: auto;
   display: block;
 }
 
-/* Center nav links perfectly */
+/* Nav links (desktop) */
 .nav-links {
   display: flex;
-  justify-content: center;
-  gap: 40px;
+  align-items: center;
+  gap: 35px;
 }
 
-/* Nav links styling */
 .nav-links a {
   text-decoration: none;
   color: #111;
@@ -75,7 +78,7 @@ body {
   align-items: center;
   gap: 8px;
   background: #eaeaea;
-  padding: 12px 18px;
+  padding: 10px 18px;
   border-radius: 40px;
   font-size: 14px;
   font-weight: 600;
@@ -95,42 +98,41 @@ body {
 }
 
 .hamburger span {
-  width: 28px;
+  width: 26px;
   height: 2px;
   background: #111;
   border-radius: 2px;
 }
 
-/* ================= HERO (UNCHANGED) ================= */
+/* ========================= */
+/* 📱 TABLET */
+/* ========================= */
 
-.hero {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-image: url('images/40.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+@media (max-width: 1100px) {
+
+  .navbar {
+    padding: 0 30px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
 }
 
-/* ================= CONTENT ================= */
-
-.content {
-  min-height: 120vh;
-  background: #f5f5f5;
-  padding: 120px 20px;
-  text-align: center;
-}
-
-/* ================= MOBILE ================= */
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
 
 @media (max-width: 900px) {
 
   .navbar {
-    padding: 16px 22px;
+    height: 75px;
+    padding: 0 20px;
   }
 
   .logo img {
-    height: 52px;
+    height: 50px;
   }
 
   .contact-number {
@@ -141,35 +143,30 @@ body {
     display: flex;
   }
 
-  /* Menu opens BELOW navbar */
   .nav-links {
     position: fixed;
-    top: 80px; /* height of navbar */
+    top: 75px;
     left: 0;
     width: 100%;
-    height: 450px;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    height: calc(100vh - 75px);
+
+    background: white;
 
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-
-    padding-top: 30px;
+    padding-top: 40px;
     gap: 0;
 
-    transform: translateY(-120%);
-    transition: 0.4s ease;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
   }
 
   .nav-links.active {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
-  /* Premium divided links */
   .nav-links a {
-    width: 75%;
+    width: 80%;
     text-align: center;
     padding: 18px 0;
     font-size: 18px;
@@ -179,6 +176,8 @@ body {
   .nav-links a:last-child {
     border-bottom: none;
   }
+
+}
 
   /* Hero mobile image switch works again */
   .hero {
@@ -599,36 +598,6 @@ body {
                 margin-right: ;
             }
         }
-
- /* Logo Container */
-.logo-container {
-  height: 60px;             /* Navbar height */
-  display: flex;
-  align-items: center;
-  justify-content: center;   /* Center horizontally */
-  overflow: visible;        /* So scaled logo isn’t clipped */
-}
-
-/* Logo Image */
-.logo-img {
-  max-height: 50px;         /* Original height limit */
-  width: auto;
-  scale: 1.6;               /* Enlarges logo visually */
-  transform-origin: center; /* Center scale so logo doesn’t shift left */
-  transition: all 0.3s ease;
-  margin-right:200px;
-  margin-left: 3px;
-  padding-left: 3px
-}
-
-/* Mobile adjustments */
-@media (max-width: 500px) {
-  .logo-img {
-    height: 80px;
-    scale: 1;              /* Optional: reset scaling for small screens */
-  }
-}
-
 
 
 </style>
@@ -2187,6 +2156,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

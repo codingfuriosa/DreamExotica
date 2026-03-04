@@ -19,22 +19,21 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR STRUCTURE ================= */
 
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   padding: 18px 60px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  background: transparent;
-  transition: all 0.4s ease;
   z-index: 1000;
+  transition: all 0.4s ease;
 }
 
-/* Blur only — no white fade */
+/* Blur on scroll */
 .navbar.scrolled {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -44,29 +43,22 @@ body {
 /* Logo */
 .logo img {
   height: 60px;
-  object-fit: contain;
-  margin-left: 1px;
+  width: auto;
+  display: block;
 }
 
-/* Nav Links Desktop */
+/* Center nav links perfectly */
 .nav-links {
   display: flex;
+  justify-content: center;
   gap: 40px;
-  margin: 0 auto;   /* THIS centers the links block */
 }
 
-.logo {
-  flex-shrink: 0;
-}
-
-.contact-number {
-  flex-shrink: 0;
-}
-
+/* Nav links styling */
 .nav-links a {
   text-decoration: none;
   color: #111;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -77,15 +69,15 @@ body {
   opacity: 0.6;
 }
 
-/* Contact Button */
+/* Contact button */
 .contact-number {
   display: flex;
   align-items: center;
   gap: 8px;
   background: #eaeaea;
-  padding: 12px 15px;
+  padding: 12px 18px;
   border-radius: 40px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   transition: 0.3s ease;
 }
@@ -107,7 +99,6 @@ body {
   height: 2px;
   background: #111;
   border-radius: 2px;
-  transition: 0.3s ease;
 }
 
 /* ================= HERO (UNCHANGED) ================= */
@@ -2196,6 +2187,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

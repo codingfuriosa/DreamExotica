@@ -97,9 +97,35 @@ html, body {
     white-space: nowrap; /* Prevent text wrap */
 }
 
+/* NAV LINKS */
 .navbar a {
+    position: relative;
     color: #000;
+    font-weight: 600;
     letter-spacing: 0.5px;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Animated Underline */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #0d261a;
+    transition: width 0.3s ease;
+}
+
+/* Hover Effect */
+.navbar a:hover {
+    color: #0d261a;
+}
+
+.navbar a:hover::after {
+    width: 100%;
 }
 
 /* CONTACT BUTTON */
@@ -158,12 +184,14 @@ html, body {
 
     .navbar.active {
         display: flex;
+        font-weight: 1px;
     }
 
     .navbar a {
         padding: 16px 0;
         border-bottom: 1px solid #eee;
         font-size: 0.9rem;
+        font-weight: 1px;
     }
 
     .contact-info {
@@ -172,6 +200,7 @@ html, body {
 
     .hamburger-menu {
         display: block;
+        margin-left: auto   ;
     }
 
 
@@ -187,30 +216,23 @@ html, body {
    HERO – FINAL CORRECT VERSION
 ===================================== */
 
+/* =====================================
+   HERO – RESPONSIVE NO CROP NO GAPS
+===================================== */
+
 .hero-section {
-    height: 100svh;
     width: 100%;
-    overflow: hidden;
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Fallback for older browsers */
-@supports not (height: 100svh) {
-    .hero-section {
-        height: 100vh;
-    }
 }
 
 .hero-section picture {
     display: block;
     width: 100%;
-    height: 100%;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;     /* 🔥 THIS is the fix */
+    display: block;
 }
         .btn-book-visit, .btn-enquire-now {
             display: inline-block;
@@ -578,19 +600,15 @@ html, body {
 
 <header id="main-header">
 
-    <div class="logo-container">
-        <img src="images/30.png" alt="Company Logo" class="logo-img">
-    </div>
-
     <nav class="navbar" id="navbar-links">
-        <a href="#overview-section">OVERVIEW</a>
-        <a href="#highlights-section">HIGHLIGHTS</a>
-        <a href="#amenities-section">AMENITIES</a>
-        <a href="#project-configuration-section">PROJECT CONFIGURATION</a>
-        <a href="#plans-section">PLANS</a>
-        <a href="#gallery-section">GALLERY</a>
-        <a href="#location-section">LOCATION</a>
-    </nav>
+    <a href="#overview-section">OVERVIEW</a>
+    <a href="#project-highlights">HIGHLIGHTS</a>
+    <a href="#amenities-section">AMENITIES</a>
+    <a href="#project-configuration-section">PROJECT CONFIGURATION</a>
+    <a href="#plans-section">PLANS</a>
+    <a href="#gallery-section">GALLERY</a>
+    <a href="#location-section">LOCATION</a>
+</nav>
 
     <div class="contact-info">
         <span class="phone-icon">&#9742;</span>
@@ -605,7 +623,7 @@ html, body {
  <main class="hero-section">
 
     <picture>
-        <source media="(max-width: 992px)" srcset="images/41.png">
+        <source media="(max-width: 992px)" srcset="images/42.png">
         <img src="images/40.png" alt="Hero Banner" class="hero-img">
     </picture>
 

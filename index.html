@@ -54,23 +54,31 @@ html, body {
     width: 100%;
 }
 
-/* ======================================
-   RESPONSIVE ORGANIZED NAVBAR
-====================================== */
+/* ===============================
+   STICKY BLUR NAVBAR
+================================ */
 
 #main-header {
-    position: absolute;
+    position: fixed;   /* changed from absolute */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
 
-    background: transparent;
     padding: 20px 4%;
-    
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Blur effect when scrolled */
+#main-header.scrolled {
+    background: rgba(255, 255, 275, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 /* LOGO */
@@ -112,6 +120,8 @@ html, body {
     cursor: pointer;
     color: #000;
 }
+
+
 
 /* ======================================
    LARGE TABLETS (1200px ↓)
@@ -163,50 +173,49 @@ html, body {
     .hamburger-menu {
         display: block;
     }
+
+
+    .logo-img {
+        height: 55px;   /* bigger than before */
+    }
+
+    .hamburger-menu {
+        font-size: 32px;   /* larger icon */
+    }
 }
-/* -------------------------------------- */
-/* HERO SECTION */
-/* -------------------------------------- */
-
-/* -------------------------------------- */
-/* HERO SECTION - FULL IMAGE VISIBLE */
-/* -------------------------------------- */
-
 /* =====================================
-   FULL SCREEN PERFECT HERO
+   HERO – FINAL CORRECT VERSION
 ===================================== */
 
 .hero-section {
-    position: relative;
+    height: 100svh;
     width: 100%;
-    height: 100vh;
     overflow: hidden;
 }
 
-/* Remove picture spacing */
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Fallback for older browsers */
+@supports not (height: 100svh) {
+    .hero-section {
+        height: 100vh;
+    }
+}
+
 .hero-section picture {
     display: block;
     width: 100%;
     height: 100%;
 }
-
-/* Image fills screen */
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* Fills screen */
-    object-position: center;  /* Adjust focal point */
-    display: block;
-}
-
-/* Remove overlay completely */
-.hero-overlay {
-    display: none;
-}
         .btn-book-visit, .btn-enquire-now {
             display: inline-block;
             padding: 18px 45px;
-            background-color: #6a4e42;
+            background-color: #0d261a;
             color: var(--light-color);
             text-transform: uppercase;
             font-weight: 700;
@@ -261,7 +270,7 @@ html, body {
             bottom: 0;
             width: 80px;
             height: 4px;
-            background-color: var(--primary-color);
+            background-color: #0d261a;
             border-radius: 2px;
         }
        
@@ -308,13 +317,13 @@ html, body {
             display: block;
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #333;
             line-height: 1.2;
         }
 
         .metric-details span {
             font-size: 0.85rem;
-            color: #777;
+            color: ;
             font-weight: 400;
         }
 
@@ -448,7 +457,7 @@ html, body {
         /* -------------------------------------- */
         .amenities-section {
             padding: 100px 0;
-            background-color: var(--dark-color); /* Dark background */
+            background-color: #0d261a; /* Dark background */
             text-align: center;
             color: var(--light-color);
         }
@@ -596,14 +605,9 @@ html, body {
  <main class="hero-section">
 
     <picture>
-        <!-- Mobile Image (9:16) -->
         <source media="(max-width: 992px)" srcset="images/41.png">
-
-        <!-- Desktop Image (16:9) -->
         <img src="images/40.png" alt="Hero Banner" class="hero-img">
     </picture>
-
-    <div class="hero-overlay"></div>
 
 </main>
 
@@ -611,6 +615,17 @@ html, body {
 function toggleMenu() {
     document.getElementById("navbar-links").classList.toggle("active");
 }
+</script>
+
+<script>
+window.addEventListener("scroll", function() {
+    const header = document.getElementById("main-header");
+    if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
 </script>
 
 
@@ -786,6 +801,10 @@ body {
 
   .highlight-card {
     padding: 40px 30px;
+  }
+
+  .highlight-number {
+    font-size: 2.7rem;
   }
 }
 
@@ -1469,7 +1488,8 @@ document.addEventListener("DOMContentLoaded", function() {
     <!-- Heading and Description -->
     <div class="location-header">
       <h2>Proximity To Key Locations Nearby</h2>
-      <p>Located in one of the modern areas of Kolkata, Dream Exotica is your gateway to exclusive experiences and unforgettable adventures.</p>
+      <br>
+      <br>
     </div>
 
     <!-- Map Embed -->

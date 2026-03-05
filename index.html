@@ -424,122 +424,6 @@ html, body {
         }
 
         /* -------------------------------------- */
-        /* 4. PROPERTY HIGHLIGHTS SECTION (REPLICATED STYLE) */
-        /* -------------------------------------- */
-        .highlights-section {
-            padding: 80px 0 100px;
-            background-color: var(--light-color); /* White background for clean look */
-            text-align: center;
-        }
-
-        .highlights-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
-            color: var(--dark-color);
-        }
-        .highlights-section h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -5px;
-            margin: 0 auto;
-            width: 120px; /* Wider underline as per image */
-            height: 2px; /* Thinner underline as per image */
-            background-color: #6a4e42;
-            border-radius: 1px;
-        }
-
-        .highlights-section > p {
-            font-size: 1rem;
-            color: #555;
-            max-width: 800px;
-            margin: 30px auto 50px;
-            line-height: 1.5;
-        }
-
-        .highlight-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .highlight-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0; /* Remove border radius for exact image replication */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-       
-        .highlight-card:hover {
-            transform: scale(1.01);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 350px; /* Taller height for visual impact */
-            background-color: #ddd;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        /* Dark overlay at the bottom of the image for contrast */
-        .card-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
-        }
-
-        .card-content {
-            position: absolute;
-            bottom: 30px; /* Position slightly above the bottom edge */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%; /* Smaller width relative to the card */
-           
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 25px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-       
-        .card-content h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-       
-        .card-content p {
-            font-size: 0.8rem;
-            color: #555;
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-
-        /* Specific Card Image Backgrounds (Placeholders) */
-        #card-1 {
-            background-image: url('images/1.png');
-        }
-        #card-2 {
-            background-image: url('images/7.jpg');
-        }
-        #card-3 {
-            background-image: url('images/8.jpg');
-        }
-
-        /* -------------------------------------- */
         /* 5. AMENITIES SECTION */
         /* -------------------------------------- */
         .amenities-section {
@@ -2294,6 +2178,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

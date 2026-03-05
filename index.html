@@ -65,10 +65,10 @@ html, body {
     width: 100%;
     z-index: 1000;
 
-    padding: 20px 4%;
+    padding: 30px 4%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     background: transparent;
     transition: all 0.3s ease;
@@ -94,9 +94,12 @@ html, body {
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    white-space: nowrap; /* Prevent text wrap */
-}
+    white-space: nowrap;
 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* NAV LINKS */
 .navbar a {
     position: relative;
@@ -105,6 +108,7 @@ html, body {
     letter-spacing: 0.5px;
     padding: 5px 0;
     transition: color 0.3s ease;
+    align-items: center;
 }
 
 /* Animated Underline */
@@ -128,7 +132,6 @@ html, body {
     width: 100%;
 }
 
-/* CONTACT BUTTON */
 .contact-info {
     background: #ffffff;
     color: #000;
@@ -137,6 +140,8 @@ html, body {
     font-size: 0.85rem;
     font-weight: 600;
     white-space: nowrap;
+
+    margin-left: auto;   /* pushes it to the right */
 }
 
 /* HAMBURGER */
@@ -1908,11 +1913,11 @@ document.addEventListener("DOMContentLoaded", function() {
   <div class="modal-content">
     <span class="close-btn" id="closeModal">&times;</span>
 
-    <h2 class="form-title">Register Your Interest</h2>
+    <h2 class="form-title">Enquiry Form</h2>
 
     <form id="enquireForm" novalidate>
       <input type="text" id="name" placeholder="Full Name" required>
-      <input type="tel" id="phone" placeholder="Mobile Number" required>
+      <input type="tel" id="phone" placeholder="Mobile Number (+91XXXXXXXXXX)" required>
       <input type="email" id="email" placeholder="Email Address" required>
       <button type="submit" class="submit-btn">Submit</button>
     </form>
@@ -2146,5 +2151,4 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
-
 

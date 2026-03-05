@@ -1942,6 +1942,36 @@ document.addEventListener("DOMContentLoaded", function() {
   cursor: pointer;
 }
 
+/* Terms checkbox */
+
+.terms-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  margin-bottom:15px;
+  color:#333;
+}
+
+.terms-box input{
+  width:auto;
+  margin:0;
+  cursor:pointer;
+}
+
+.terms-box label{
+  cursor:pointer;
+}
+
+.terms-box a{
+  color:#0d261a;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.terms-box a:hover{
+  text-decoration:underline;
+}
 </style>
 
 
@@ -1973,14 +2003,22 @@ document.addEventListener("DOMContentLoaded", function() {
   <div class="modal-content">
     <span class="close-btn" id="closeModal">&times;</span>
 
-    <h2 class="form-title">Enquiry Form</h2>
+    <h2 class="form-title">Register Your Interest</h2>
 
     <form id="enquireForm" novalidate>
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="tel" id="phone" placeholder="Mobile Number (+91XXXXXXXXXX)" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <button type="submit" class="submit-btn">Submit</button>
-    </form>
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="tel" id="phone" placeholder="Mobile Number" required>
+  <input type="email" id="email" placeholder="Email Address" required>
+
+  <div class="terms-box">
+    <input type="checkbox" id="terms" required>
+    <label for="terms">
+      I agree to be contacted by the Jain Group on the above supplied phone number and email address
+    </label>
+  </div>
+
+  <button type="submit" class="submit-btn">Submit</button>
+</form>
   </div>
 </div>
 
@@ -2211,6 +2249,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

@@ -792,6 +792,18 @@ body {
   background: #f8f8f8;
 }
 
+    /* Remove extra space between sections */
+#overview-section{
+    margin-bottom:0;
+    padding-bottom:1px;
+
+}
+
+#project-highlights{
+    margin-top:0;
+    padding-top:-30px;
+}
+
 /* ================= SECTION ================= */
 
 .project-highlights {
@@ -1177,7 +1189,7 @@ body {
   <p style="font-size: 1.1rem; color: #666;">Estimated Super Built-Up Area (SBA)</p>
 </div>
 
-<br><br><br>
+<br><br>
 
 <section class="unit-grid" id="project-configuration-section">
   <!-- 2 BHK Villas -->
@@ -1208,7 +1220,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
   gap: 40px; /* Slightly bigger gap for premium spacing */
-  margin: 0 auto 80px;
+  margin: 30px auto 40px;
   max-width: 1000px; /* Reduced width for better balance */
   padding: 0 20px;
 }
@@ -1980,6 +1992,33 @@ document.addEventListener("DOMContentLoaded", function() {
 .terms-box a:hover{
   text-decoration:underline;
 }
+
+/* MOBILE ENQUIRY BAR ALIGNMENT */
+@media (max-width:768px){
+
+  .mobile-text{
+    display:flex !important;
+    justify-content:center;     /* centers the whole block */
+    align-items:center;
+    width:100%;
+    gap:16px;
+  }
+
+  .enquire-click,
+  .call-click{
+    flex:1;                     /* both sides take equal space */
+    display:flex;
+    justify-content:center;     /* center text inside */
+    align-items:center;
+    gap:8px;
+  }
+
+  .divider{
+    flex:none;
+  }
+
+}
+    
 </style>
 
 
@@ -2257,6 +2296,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

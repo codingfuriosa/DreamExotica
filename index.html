@@ -65,7 +65,7 @@ html, body {
     width: 100%;
     z-index: 1000;
 
-    padding: 30px 4%;
+    padding: 18px 4%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +109,6 @@ html, body {
     padding: 5px 0;
     transition: color 0.3s ease;
     align-items: center;
-    right: 10%;
 }
 
 /* Animated Underline */
@@ -206,7 +205,7 @@ html, body {
 
     .hamburger-menu {
         display: block;
-        margin-left: auto   ;
+        margin-left: auto;
     }
 
 
@@ -218,6 +217,63 @@ html, body {
         font-size: 32px;   /* larger icon */
     }
 }
+
+/* ================= MOBILE NAV ================= */
+@media (max-width: 992px) {
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transform: none;   /* VERY IMPORTANT */
+        width: 100%;
+
+        background: #ffffff;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        padding: 10px 0;
+    }
+
+    .navbar.active {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Mobile links */
+    .navbar a {
+        padding: 16px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    /* Hide contact button on mobile */
+    .contact-info {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .hamburger-menu {
+        display: block;
+        font-size: 30px;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    /* Header alignment */
+    #main-header {
+        justify-content: space-between;
+    }
+}
+
+
 /* =====================================
    HERO – FINAL CORRECT VERSION
 ===================================== */
@@ -2152,5 +2208,4 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
-
 

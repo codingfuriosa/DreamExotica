@@ -598,7 +598,20 @@ window.addEventListener("scroll", function() {
 });
 </script>
 
+<script>
+function adjustHeroHeight(){
 
+    const enquiryBar = document.getElementById("enquiryBar");
+    const hero = document.querySelector(".hero-section");
+
+    const enquiryHeight = enquiryBar.offsetHeight;
+
+    hero.style.height = `calc(100vh - ${enquiryHeight}px)`;
+}
+
+window.addEventListener("load", adjustHeroHeight);
+window.addEventListener("resize", adjustHeroHeight);
+</script>
 
  <!-- PROJECT OVERVIEW / DETAILS SECTION -->
 <section id="overview-section">
@@ -2181,6 +2194,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

@@ -101,6 +101,18 @@ html, body {
             padding-bottom: 15px;
         }
 
+        .amenities-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 150px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 1px;
+        }
+
         .amenity-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -512,107 +524,140 @@ header.classList.remove("scrolled");
 </script>
 
 
-<section class="overview-section" id="overview-section">
-  <div class="container overview-grid">
-    <div class="overview-text">
-      <h2>Project Overview</h2>
-      <p>
-        <b>Dream Exotica in Madhyamgram</b> is a premium residential development by
-        <b>Jain Group</b>, designed for families who want modern comfort without leaving
-        the city’s growth corridor.
-      </p>
+<section class="overview-section">
 
-      <div class="metrics-grid">
-        <div class="metric">
-          <i class="fas fa-building"></i>
-          <div>
-            <strong>154 Units</strong>
-            <span>Total Apartments</span>
-          </div>
-        </div>
-        <div class="metric">
-          <i class="fas fa-layer-group"></i>
-          <div>
-            <strong>G+4 Storied</strong>
-            <span>Structure</span>
-          </div>
-        </div>
-        <div class="metric">
-          <i class="fas fa-city"></i>
-          <div>
-            <strong>7 Blocks</strong>
-            <span>Total Blocks</span>
-          </div>
-        </div>
-        <div class="metric">
-          <i class="fas fa-map"></i>
-          <div>
-            <strong>2 Acres</strong>
-            <span>Land Area</span>
-          </div>
-        </div>
-        <div class="metric">
-          <i class="fas fa-home"></i>
-          <div>
-            <strong>Studio, 2 & 3 BHK</strong>
-            <span>Configuration</span>
-          </div>
-        </div>
-        <div class="metric">
-          <i class="fas fa-key"></i>
-          <div>
-            <strong>Ready to Move</strong>
-            <span>Status</span>
-          </div>
-        </div>
-      </div>
-    </div>
+<section id="overview-section">
 
-    <div class="overview-image">
-      <img src="images/41.png" alt="Dream Exotica Overview Image">
-    </div>
-  </div>
+<div class="container overview-grid">
+
+<!-- LEFT TEXT -->
+<div class="overview-text">
+
+<h2>Project Overview</h2>
+
+<p>
+<b>Dream Exotica in Madhyamgram</b> is a premium residential development by
+<b>Jain Group</b>, designed for families who want modern comfort without leaving
+the city’s growth corridor.
+</p>
+
+<div class="metrics-grid">
+
+<div class="metric">
+<i class="fas fa-building"></i>
+<div>
+<strong>154 Units</strong>
+<span>Total Apartments</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-layer-group"></i>
+<div>
+<strong>G+4 Storied</strong>
+<span>Structure</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-city"></i>
+<div>
+<strong>7 Blocks</strong>
+<span>Total Blocks</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-map"></i>
+<div>
+<strong>2 Acres</strong>
+<span>Land Area</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-home"></i>
+<div>
+<strong>Studio, 2 & 3 BHK</strong>
+<span>Configuration</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-key"></i>
+<div>
+<strong>Ready to Move</strong>
+<span>Status</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT IMAGE -->
+<div class="overview-image">
+
+<img src="images/41.png" alt="Dream Exotica Overview Image">
+
+</div>
+
+</div>
+
 </section>
 
+
+<br>
+<br>
 <style>
 /* --- SECTION WRAPPER --- */
 .overview-section {
     background: #f5f5f5;
-    padding: 80px 0; /* More vertical padding for big screens */
-    width: 100%;
+    padding: 30px 0; /* Added more padding for a premium look */
 }
 
-/* --- CONTAINER (FIXED FOR TV/DESKTOP) --- */
+/* --- CONTAINER --- */
 .container {
-    width: 92%;           /* Uses 92% of the screen width */
-    max-width: 1800px;    /* Increased from 1400px to fill large screens better */
+    width: 95%;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 /* --- THE GRID --- */
 .overview-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr; 
-    gap: 80px;            /* Increased gap for wide screens */
+    grid-template-columns: 1.2fr 0.8fr; /* Keeps text side slightly larger */
+    gap: 60px;
+    /* Aligns both the text and image containers to the very top */
     align-items: start; 
 }
 
-/* --- LEFT CONTENT --- */
+/* --- LEFT CONTENT (Text) --- */
 .overview-text h2 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive sizing: gets bigger on TVs */
+    font-size: 2.6rem; /* Made the heading significantly bigger */
     font-weight: 600;
     line-height: 1.1;
     margin-bottom: 25px;
-    margin-top: 0px; 
-    color:#333;
+    position: relative;
+    margin-top: 0px; /* Essential: removes gap to align with image top */
+    color: #333;
+}
+
+.overview-text h2::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #0d261a;
+    display: block;
+    margin-top: 15px;
 }
 
 .overview-text p {
-    font-size: 19px;     /* Slightly larger base text for readability */
+    font-size: 17px; /* Slightly larger for readability */
     color: #444;
     line-height: 1.8;
-    margin-bottom: 50px;
-    max-width: 750px;    /* Let the text span further on wide screens */
+    margin-bottom: 45px;
+    max-width: 600px;
 }
 
 /* --- METRICS GRID --- */
@@ -629,14 +674,23 @@ header.classList.remove("scrolled");
 }
 
 .metric i {
-    font-size: 24px;
+    font-size: 20px;
+    margin-top: 5px;
     color: #0d261a;
 }
 
 .metric strong {
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
+    color: #222;
+}
+
+.metric span {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* --- RIGHT CONTENT (Image) --- */
@@ -644,37 +698,76 @@ header.classList.remove("scrolled");
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin-top: 0px; /* Ensures top alignment with H2 */
+    height: 500px;
 }
 
 .overview-image img {
     width: 100%;
-    max-width: 600px;   /* Increased from 450px so it doesn't look tiny on TV */
-    border-radius: 24px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+    /* Made image "a bit smaller" by capping max-width */
+    max-width: 450px; 
+    border-radius: 20px; /* Softer corners */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
     display: block;
+}
+/* -------------------
+TABLET
+------------------- */
+
+@media(max-width:992px){
+
+.overview-section{
+padding:60px 0 40px;
+}
+
+.overview-grid{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.overview-image{
+max-width:500px;
+margin:auto;
+}
+
+.metrics-grid{
+gap:30px 40px;
+}
+
 }
 
 /* -------------------
-   RESPONSIVE OVERRIDES
+MOBILE
 ------------------- */
-@media(max-width: 1200px) {
-    .overview-text h2 { font-size: 3rem; }
-    .overview-grid { gap: 40px; }
+
+@media(max-width:600px){
+
+.overview-section{
+padding-top:0;
+padding-bottom:20px;
 }
 
-@media(max-width: 992px) {
-    .overview-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-    .overview-image { justify-content: center; }
+.overview-text h2{
+font-size:30px;
 }
 
-@media(max-width: 600px) {
-    .overview-section { padding: 40px 0; }
-    .overview-text h2 { font-size: 2rem; }
+.overview-text p{
+font-size:14px;
 }
+
+.metrics-grid{
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.overview-image{
+margin-top:10px;
+}
+
+}
+
 </style>
+
 
 
 <style>

@@ -54,269 +54,6 @@ html, body {
     width: 100%;
 }
 
-/* ===============================
-   STICKY BLUR NAVBAR
-================================ */
-
-#main-header {
-    position: fixed;   /* changed from absolute */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    padding: 18px 4%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-/* Blur effect when scrolled */
-#main-header.scrolled {
-    background: rgba(255, 255, 275, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-/* LOGO */
-.logo-img {
-    height: 45px;
-    width: auto;
-}
-
-/* NAV LINKS */
-.navbar {
-    display: flex;
-    gap: 28px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    white-space: nowrap;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-top: 10px;
-
-}
-/* NAV LINKS */
-.navbar a {
-    position: relative;
-    color: #000;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 10px 0;
-    transition: color 0.3s ease;
-    align-items: center;
-}
-
-/* Animated Underline */
-.navbar a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background-color: #0d261a;
-    transition: width 0.3s ease;
-}
-
-/* Hover Effect */
-.navbar a:hover {
-    color: #0d261a;
-}
-
-.navbar a:hover::after {
-    width: 100%;
-}
-
-.contact-info {
-    background: #ffffff;
-    color: #000;
-    padding: 7px 16px;
-    border-radius: 25px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    white-space: nowrap;
-    margin-top: 10px;
-
-    margin-left: auto;   /* pushes it to the right */
-}
-
-/* HAMBURGER */
-.hamburger-menu {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
-    color: #000;
-}
-
-
-
-/* ======================================
-   LARGE TABLETS (1200px ↓)
-====================================== */
-@media (max-width: 1200px) {
-
-    .navbar {
-        gap: 18px;
-        font-size: 0.75rem;
-    }
-
-    .contact-info {
-        font-size: 0.75rem;
-        padding: 6px 14px;
-    }
-}
-
-/* ======================================
-   TABLET BREAKPOINT (992px ↓)
-====================================== */
-@media (max-width: 992px) {
-
-    .navbar {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    }
-
-    .navbar.active {
-        display: flex;
-        font-weight: 1px;
-    }
-
-    .navbar a {
-        padding: 16px 0;
-        border-bottom: 1px solid #eee;
-        font-size: 0.9rem;
-        font-weight: 1px;
-    }
-
-    .contact-info {
-        display: none;
-    }
-
-    .hamburger-menu {
-        display: block;
-        margin-left: auto;
-    }
-
-
-    .logo-img {
-        height: 55px;   /* bigger than before */
-    }
-
-    .hamburger-menu {
-        font-size: 32px;   /* larger icon */
-    }
-}
-
-/* ================= MOBILE NAV ================= */
-@media (max-width: 992px) {
-
-    .navbar {
-        display: none;
-        flex-direction: column;
-
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transform: none;   /* VERY IMPORTANT */
-        width: 100%;
-
-        background: #ffffff;
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        padding: 10px 0;
-    }
-
-    .navbar.active {
-        display: flex;
-        align-items: center;
-    }
-
-    /* Mobile links */
-    .navbar a {
-        padding: 16px 0;
-        border-bottom: 1px solid #eee;
-        font-size: 0.95rem;
-        text-align: center;
-    }
-
-    .navbar a:last-child {
-        border-bottom: none;
-    }
-
-    /* Hide contact button on mobile */
-    .contact-info {
-        display: none;
-    }
-
-    /* Show hamburger */
-    .hamburger-menu {
-        display: block;
-        font-size: 30px;
-        margin-left: auto;
-        cursor: pointer;
-    }
-
-    /* Header alignment */
-    #main-header {
-        justify-content: space-between;
-    }
-}
-
-
-/* ===============================
-   HERO SECTION
-================================ */
-
-/* Hero wrapper */
-.hero-section{
-    width:100%;
-    margin:0;
-    padding:0;
-    line-height:0;          /* removes inline image gap */
-}
-
-/* Picture wrapper */
-.hero-section picture{
-    display:block;
-    width:100%;
-}
-
-/* Hero Image */
-.hero-img{
-    width:100%;
-    height:auto;
-    display:block;          /* prevents baseline spacing */
-}
-
-/* Desktop Hero */
-@media (min-width: 993px){
-
-    .hero-section{
-        margin-top:0;
-    }
-
-    .hero-img{
-        width:100%;
-        height:auto;
-        object-fit:cover;
-    }
-
-}
-
 /* Mobile Hero */
 @media (max-width: 992px){
 
@@ -482,71 +219,567 @@ html, body {
     </style>
 </head>
 <body>
-
 <header id="main-header">
 
-    <nav class="navbar" id="navbar-links">
-    <a href="#overview-section">OVERVIEW</a>
-    <a href="#project-highlights">HIGHLIGHTS</a>
-    <a href="#amenities-section">AMENITIES</a>
-    <a href="#project-configuration-section">PROJECT CONFIGURATION</a>
-    <a href="#plans-section">PLANS</a>
-    <a href="#gallery-section">GALLERY</a>
-    <a href="#location-section">LOCATION</a>
+<nav class="navbar">
+
+<div class="nav-links" id="nav-links">
+<a href="#overview-section">OVERVIEW</a>
+<a href="#project-highlights">HIGHLIGHTS</a>
+<a href="#amenities-section">AMENITIES</a>
+<a href="#project-configuration-section">PROJECT CONFIGURATION</a>
+<a href="#plans-section">PLANS</a>
+<a href="#gallery-section">GALLERY</a>
+<a href="#location-section">LOCATION</a>
+</div>
+
+<div class="contact-btn">
+☎ +91 8617258726
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+☰
+</div>
+
 </nav>
 
-    <div class="contact-info">
-        <span class="phone-icon">&#9742;</span>
-        <span class="phone-number">+91 8617258726</span>
-    </div>
-
-    <div class="hamburger-menu" onclick="toggleMenu()">
-        &#9776;
-    </div>
-
 </header>
- <main class="hero-section">
 
-    <picture>
-        <source media="(max-width: 992px)" srcset="images/42.png">
-        <img src="images/40.png" alt="Hero Banner" class="hero-img">
-    </picture>
 
-</main>
 
-    <script>
-function toggleMenu() {
-    document.getElementById("navbar-links").classList.toggle("active");
+<!-- HERO SECTION -->
+
+<section class="hero-section">
+
+<picture>
+
+<!-- MOBILE HERO -->
+<source media="(max-width: 768px)" srcset="images/42.png">
+
+<!-- DESKTOP HERO -->
+<img src="images/40.png" alt="Dream Exotica Hero" class="hero-img">
+
+</picture>
+
+</section>
+
+<style>
+    /* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-</script>
+
+body{
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+}
+
+
+
+/* =========================
+NAVBAR
+========================= */
+
+#main-header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+z-index:1000;
+
+padding:18px 4%;
+
+transition:all .3s ease;
+
+}
+
+/* transparent initially */
+
+#main-header{
+background:transparent;
+}
+
+
+/* blur when scrolled */
+
+#main-header.scrolled{
+
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+}
+
+
+/* NAVBAR LAYOUT */
+
+.navbar{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+position:relative;
+
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+
+display:flex;
+gap:28px;
+
+font-size:.75rem;
+font-weight:600;
+letter-spacing:.5px;
+
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+
+}
+
+
+.nav-links a{
+
+text-decoration:none;
+color:#1d2a2f;
+
+padding:8px 0;
+
+position:relative;
+
+}
+
+
+/* underline animation */
+
+.nav-links a::after{
+
+content:"";
+position:absolute;
+
+left:0;
+bottom:-4px;
+
+width:0;
+height:2px;
+
+background:#0d261a;
+
+transition:.3s;
+
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+
+
+/* CONTACT BUTTON */
+
+.contact-btn{
+
+margin-left:auto;
+
+background:white;
+
+padding:8px 16px;
+
+border-radius:25px;
+
+font-size:.75rem;
+font-weight:600;
+
+}
+
+
+
+/* HAMBURGER */
+
+.hamburger{
+
+display:none;
+font-size:28px;
+cursor:pointer;
+
+margin-left:auto;
+
+}
+
+
+
+/* =========================
+HERO
+========================= */
+
+.hero-section{
+
+width:100%;
+line-height:0;
+margin-bottom: 40PX;
+
+}
+
+.hero-section picture{
+
+display:block;
+width:100%;
+
+}
+
+.hero-img{
+
+width:100%;
+height:auto;
+display:block;
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width:992px){
+
+/* hide desktop nav */
+
+.nav-links{
+
+display:none;
+
+flex-direction:column;
+
+position:absolute;
+top:70px;
+left:0;
+
+width:100%;
+
+background:white;
+
+padding:20px 0;
+
+box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+transform:none;
+
+}
+
+
+.nav-links.active{
+
+display:flex;
+
+}
+
+
+.nav-links a{
+
+padding:14px 0;
+border-bottom:1px solid #eee;
+
+font-size:.9rem;
+
+}
+
+
+/* hide contact button */
+
+.contact-btn{
+display:none;
+}
+
+
+/* show hamburger */
+
+.hamburger{
+display:block;
+}
+
+}
+</style>
 
 <script>
-window.addEventListener("scroll", function() {
-    const header = document.getElementById("main-header");
-    if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
+    function toggleMenu(){
+
+document.getElementById("nav-links").classList.toggle("active");
+
+}
+
+
+/* navbar blur on scroll */
+
+window.addEventListener("scroll",function(){
+
+const header=document.getElementById("main-header");
+
+if(window.scrollY>10){
+
+header.classList.add("scrolled");
+
+}else{
+
+header.classList.remove("scrolled");
+
+}
+
 });
 </script>
 
-<script>
-function adjustHeroHeight(){
+<section class="overview-section">
 
-    const enquiryBar = document.getElementById("enquiryBar");
-    const hero = document.querySelector(".hero-section");
+<section id="overview-section">
 
-    const enquiryHeight = enquiryBar.offsetHeight;
+<div class="container overview-grid">
 
-    hero.style.height = `calc(100vh - ${enquiryHeight}px)`;
+<!-- LEFT TEXT -->
+<div class="overview-text">
+
+<h2>Project Overview</h2>
+
+<p>
+<b>Dream Exotica in Madhyamgram</b> is a premium residential development by
+<b>Jain Group</b>, designed for families who want modern comfort without leaving
+the city’s growth corridor.
+</p>
+
+<div class="metrics-grid">
+
+<div class="metric">
+<i class="fas fa-building"></i>
+<div>
+<strong>154 Units</strong>
+<span>Total Apartments</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-layer-group"></i>
+<div>
+<strong>G+4 Storied</strong>
+<span>Structure</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-city"></i>
+<div>
+<strong>7 Blocks</strong>
+<span>Total Blocks</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-map"></i>
+<div>
+<strong>2 Acres</strong>
+<span>Land Area</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-home"></i>
+<div>
+<strong>Studio, 2 & 3 BHK</strong>
+<span>Configuration</span>
+</div>
+</div>
+
+<div class="metric">
+<i class="fas fa-key"></i>
+<div>
+<strong>Ready to Move</strong>
+<span>Status</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT IMAGE -->
+<div class="overview-image">
+
+<img src="images/41.png" alt="Dream Exotica Building">
+
+</div>
+
+</div>
+
+</section>
+
+
+<br>
+<br>
+<style>
+
+/* SECTION */
+
+.overview-section{
+background:#efefef;
+padding:120px 0;
 }
 
-window.addEventListener("load", adjustHeroHeight);
-window.addEventListener("resize", adjustHeroHeight);
-</script>
+/* CONTAINER */
 
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
 
+/* GRID */
+
+.overview-grid{
+display:grid;
+grid-template-columns:1.3fr 0.8fr;
+gap:90px;
+align-items:center;
+}
+
+/* TITLE */
+
+.overview-text h2{
+font-size:38px;
+font-weight:700;
+margin-bottom:20px;
+position:relative;
+}
+
+.overview-text h2::after{
+content:"";
+width:60px;
+height:3px;
+background:#0d261a;
+display:block;
+margin-top:10px;
+}
+
+/* PARAGRAPH */
+
+.overview-text p{
+font-size:15px;
+color:#555;
+line-height:1.8;
+margin-bottom:40px;
+max-width:520px;
+}
+
+/* METRICS GRID */
+
+.metrics-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:35px 50px;
+}
+
+/* METRIC */
+
+.metric{
+display:flex;
+align-items:flex-start;
+gap:14px;
+}
+
+.metric i{
+font-size:18px;
+margin-top:4px;
+color:#222;
+}
+
+.metric strong{
+display:block;
+font-size:17px;
+font-weight:600;
+}
+
+.metric span{
+font-size:13px;
+color:#777;
+}
+
+/* IMAGE */
+
+.overview-image{
+max-width:420px;
+margin-left:auto;
+}
+
+.overview-image img{
+width:100%;
+border-radius:12px;
+box-shadow:0 25px 45px rgba(0,0,0,0.15);
+display:block;
+}
+
+/* -------------------
+TABLET
+------------------- */
+
+@media(max-width:992px){
+
+.overview-section{
+padding:60px 0 40px;
+}
+
+.overview-grid{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.overview-image{
+max-width:500px;
+margin:auto;
+}
+
+.metrics-grid{
+gap:30px 40px;
+}
+
+}
+
+/* -------------------
+MOBILE
+------------------- */
+
+@media(max-width:600px){
+
+.overview-section{
+padding-top:0;
+padding-bottom:20px;
+}
+
+.overview-text h2{
+font-size:30px;
+}
+
+.overview-text p{
+font-size:14px;
+}
+
+.metrics-grid{
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.overview-image{
+margin-top:10px;
+}
+
+}
+
+</style>
 
 
 <style>
@@ -2047,35 +2280,4 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

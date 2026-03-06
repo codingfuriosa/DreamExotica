@@ -278,22 +278,28 @@ html, body {
 
 
 /* HERO SECTION */
+
 .hero-section{
     width:100%;
-    height:calc(100dvh - 70px); /* subtract enquiry bar */
+    height:calc(100vh - 70px); /* screen height minus enquiry bar */
     overflow:hidden;
+    position:relative;
 }
+
+/* picture should fill container */
 
 .hero-section picture{
     width:100%;
-    height: 80%;
+    height:100%;
     display:block;
 }
+
+/* image must obey container */
 
 .hero-img{
     width:100%;
     height:100%;
-    object-fit:fill;
+    object-fit:fill;   /* stretches vertically */
     display:block;
 }
         .btn-book-visit, .btn-enquire-now {
@@ -2178,6 +2184,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

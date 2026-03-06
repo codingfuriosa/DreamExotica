@@ -94,23 +94,11 @@ html, body {
         .amenities-section h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             color: var(--light-color);
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
-        }
-
-        .amenities-section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-            width: 150px;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 1px;
         }
 
         .amenity-grid {
@@ -250,8 +238,7 @@ html, body {
 </section>
 
 <style>
-    /* RESET */
-
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -264,104 +251,71 @@ overflow-x:hidden;
 }
 
 
-
 /* =========================
 NAVBAR
 ========================= */
 
 #main-header{
-
 position:fixed;
 top:0;
 left:0;
 width:100%;
-
 z-index:1000;
-
 padding:18px 4%;
-
 transition:all .3s ease;
-
-}
-
-/* transparent initially */
-
-#main-header{
 background:transparent;
 }
-
 
 /* blur when scrolled */
 
 #main-header.scrolled{
-
 background:rgba(255,255,255,.35);
 backdrop-filter:blur(12px);
 -webkit-backdrop-filter:blur(12px);
-
 }
 
 
 /* NAVBAR LAYOUT */
 
 .navbar{
-
 display:flex;
 align-items:center;
 justify-content:center;
-
 position:relative;
-
 }
 
 
-/* NAV LINKS */
+/* NAV LINKS (DESKTOP) */
 
 .nav-links{
-
 display:flex;
 gap:28px;
-
 font-size:.75rem;
 font-weight:600;
 letter-spacing:.5px;
-
 position:absolute;
 left:50%;
 transform:translateX(-50%);
-
 }
-
 
 .nav-links a{
-
 text-decoration:none;
 color:#1d2a2f;
-
 padding:8px 0;
-
 position:relative;
-
 }
-
 
 /* underline animation */
 
 .nav-links a::after{
-
 content:"";
 position:absolute;
-
 left:0;
 bottom:-4px;
-
 width:0;
 height:2px;
-
 background:#0d261a;
-
 transition:.3s;
-
 }
 
 .nav-links a:hover::after{
@@ -369,38 +323,26 @@ width:100%;
 }
 
 
-
 /* CONTACT BUTTON */
 
 .contact-btn{
-
 margin-left:auto;
-
 background:white;
-
 padding:8px 16px;
-
 border-radius:25px;
-
 font-size:.75rem;
 font-weight:600;
-
 }
-
 
 
 /* HAMBURGER */
 
 .hamburger{
-
 display:none;
 font-size:28px;
 cursor:pointer;
-
 margin-left:auto;
-
 }
-
 
 
 /* =========================
@@ -408,87 +350,75 @@ HERO
 ========================= */
 
 .hero-section{
-
 width:100%;
 line-height:0;
-margin-bottom: 40PX;
-
+margin-bottom:40px;
 }
 
 .hero-section picture{
-
 display:block;
 width:100%;
-
 }
 
 .hero-img{
-
 width:100%;
 height:auto;
 display:block;
-
 }
 
-
-
-/* =========================
-MOBILE
-========================= */
 
 @media (max-width:992px){
 
 /* hide desktop nav */
-
 .nav-links{
-
 display:none;
-
 flex-direction:column;
 
 position:absolute;
-top:70px;
-left:0;
+top:100%;
+left:50%;
+transform:translateX(-50%);
 
-width:100%;
+width: 120%;            /* wider so long text fits */
+max-width:420px;      /* prevents it becoming huge */
 
 background:white;
 
-padding:20px 0;
+padding:8px 0;
 
-box-shadow:0 10px 20px rgba(0,0,0,.1);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+border-radius:10px;
 
-transform:none;
-
+text-align:center;
 }
 
-
+/* show menu */
 .nav-links.active{
-
 display:flex;
-
 }
 
-
+/* mobile links */
 .nav-links a{
-
-padding:14px 0;
-border-bottom:1px solid #eee;
-
-font-size:.9rem;
-
+color:#333;
+font-size:15px;
+font-weight:500;
+padding:10px 10px;   /* reduced from 16px */
+border-bottom:1px solid rgba(0,0,0,0.08);
+letter-spacing:.3px;
+line-height:1.2;
 }
 
+/* remove last line */
+.nav-links a:last-child{
+border-bottom:none;
+}
 
 /* hide contact button */
-
 .contact-btn{
 display:none;
 }
 
-
 /* show hamburger */
-
 .hamburger{
 display:block;
 }
@@ -497,29 +427,20 @@ display:block;
 </style>
 
 <script>
-    function toggleMenu(){
-
-document.getElementById("nav-links").classList.toggle("active");
-
+function toggleMenu() {
+    const menu = document.getElementById("nav-links");
+    menu.classList.toggle("active");
 }
-
 
 /* navbar blur on scroll */
+window.addEventListener("scroll", function() {
+    const header = document.getElementById("main-header");
 
-window.addEventListener("scroll",function(){
-
-const header=document.getElementById("main-header");
-
-if(window.scrollY>10){
-
-header.classList.add("scrolled");
-
-}else{
-
-header.classList.remove("scrolled");
-
-}
-
+    if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
 });
 </script>
 
@@ -637,20 +558,12 @@ the city’s growth corridor.
     font-size: 2.6rem; /* Made the heading significantly bigger */
     font-weight: 600;
     line-height: 1.1;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     position: relative;
     margin-top: 0px; /* Essential: removes gap to align with image top */
     color: #333;
 }
 
-.overview-text h2::after {
-    content: "";
-    width: 70px;
-    height: 4px;
-    background: #0d261a;
-    display: block;
-    margin-top: 15px;
-}
 
 .overview-text p {
     font-size: 17px; /* Slightly larger for readability */
@@ -748,7 +661,7 @@ padding-bottom:20px;
 }
 
 .overview-text h2{
-font-size:30px;
+font-size: 2rem;
 }
 
 .overview-text p{
@@ -762,6 +675,11 @@ gap:25px;
 
 .overview-image{
 margin-top:10px;
+}
+
+.overview-text span {
+    font-size: 11px;
+    padding: 2px;
 }
 
 }
@@ -784,13 +702,13 @@ body {
 
 .project-highlights {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 10px auto;
   padding: 0 20px;
 }
 
 .project-highlights-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin: 20px;
 }
 
 .project-highlights-header h2 {
@@ -802,8 +720,8 @@ body {
 
 .project-highlights-header p {
   max-width: 650px;
-  margin: 0 auto;
-  font-size: 1.05rem;
+  margin-bottom: 40px;
+  font-size: 0.9rem;
   color: #555;
   line-height: 1.7;
 }
@@ -988,6 +906,7 @@ body {
  <section id="amenities-section">
 <section class="amenities-section">
   <h2>Our Amenities</h2>
+  <p>Curated facilities for a modern lifestyle</p>
   <div class="amenities-grid">
 
     <div class="amenity-card">
@@ -1063,16 +982,27 @@ body {
 
 <style>
   .amenities-section {
-    padding: 1px 20px;
+    padding: 10px 20px;
     background: #f9f7f6;
     text-align: center;
   }
 
+  /* Title - Tight to subheading */
   .amenities-section h2 {
     font-size: 2.6rem;
-    margin-bottom: 40px;
+    margin-bottom: -10px; 
     font-weight: 600;
     color: #333;
+  }
+
+  /* Subheading - Near title, large gap before cards */
+  .amenities-section > p {
+    max-width: 650px;
+    margin: 0 auto 40px; /* 0 top (near H2), 60px bottom (gap for cards) */
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 50px;
   }
 
   .amenities-grid {
@@ -1096,15 +1026,16 @@ body {
 
   .amenity-card i {
     font-size: 2rem;
-    color: #0d261a; /* Premium brown */
+    color: #0d261a;
     margin-bottom: 15px;
-    transition: 0.3s;
   }
 
+  /* Card Text - Reset to keep the card box tight */
   .amenity-card p {
     font-size: 1rem;
     font-weight: 500;
     color: #555;
+    margin: 0; 
   }
 
   .amenity-card:hover {
@@ -1112,11 +1043,17 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   }
 
-  .amenity-card:hover i {
-    color: #0d261a; /* Darker brown on hover */
-  }
-</style>
+  /* -------------------
+    AMENITIES MOBILE
+------------------- */
 
+@media (max-width: 768px) {
+  .amenities-section h2 {
+    font-size: 2rem; /* Smaller heading for mobile */
+  }
+
+}
+</style>
 
    
 
@@ -1126,7 +1063,7 @@ body {
          * Toggles the visibility of the mobile navigation menu.
          */
         function toggleMenu() {
-            const navbar = document.getElementById('navbar-links');
+            const navbar = document.getElementById('nav-links');
             navbar.classList.toggle('active');
            
             // Optional: Hide the vertical enquiry bar when the menu is open on mobile
@@ -1143,7 +1080,7 @@ body {
         // Add event listeners to close the menu when a link is clicked (good UX)
         document.querySelectorAll('.navbar a').forEach(link => {
             link.addEventListener('click', () => {
-                const navbar = document.getElementById('navbar-links');
+                const navbar = document.getElementById('nav-links');
                 if (navbar.classList.contains('active')) {
                     navbar.classList.remove('active');
                 }
@@ -1178,7 +1115,7 @@ body {
 
 <style>
 :root {
-  --primary-color: #6a4e42; /* Elegant green */
+  --primary-color: #6a4e42;
   --bg-white: #ffffff;
   --text-dark: #222;
   --text-gray: #777;
@@ -1187,14 +1124,14 @@ body {
 /* Grid Layout - 2 Units Per Row */
 .unit-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-  gap: 40px; /* Slightly bigger gap for premium spacing */
-  margin: 30px auto 40px;
-  max-width: 1000px; /* Reduced width for better balance */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin: 10px auto 40px; /* Reduced top margin since header handles it */
+  max-width: 1000px;
   padding: 0 20px;
 }
 
-/* Unit Card */
+/* Unit Card Styles */
 .unit-card {
   padding: 30px 20px;
   background: var(--bg-white);
@@ -1212,7 +1149,6 @@ body {
   border-color: #0d261a;
 }
 
-/* Title */
 .unit-card h3 {
   font-size: 1.6rem;
   font-weight: 700;
@@ -1220,7 +1156,6 @@ body {
   margin-bottom: 8px;
 }
 
-/* Size Range */
 .unit-card .size-range {
   font-size: 1.1rem;
   font-weight: 600;
@@ -1228,7 +1163,6 @@ body {
   margin-top: 8px;
 }
 
-/* Label */
 .unit-card .label {
   font-size: 0.85rem;
   color: var(--text-gray);
@@ -1245,9 +1179,21 @@ body {
 }
 
 @media (max-width: 600px) {
-  .unit-grid {
-    grid-template-columns: 1fr;
+  /* This targets the specific heading in your HTML */
+  .header h1 {
+    font-size: 2rem !important; /* Forces 2rem on mobile */
   }
+
+  .header p {
+    font-size: 1rem !important;
+    margin-top: 5px;
+  }
+
+  .unit-grid {
+    grid-template-columns: 1fr; /* Stacks cards on mobile */
+    gap: 20px;
+  }
+
   .unit-card {
     padding: 25px 15px;
   }
@@ -1304,7 +1250,7 @@ body {
 .plans-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 2px 20px;
   text-align: center;
 }
 .plans-header h2 {
@@ -1329,7 +1275,7 @@ body {
 }
 .tab-btn {
   background: #f5f5f5;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   padding: 12px 24px;
   font-size: 1rem;
   border-radius: 8px;
@@ -1431,7 +1377,7 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .plans-header h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .plans-header p {
     font-size: 1rem;
@@ -1486,6 +1432,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section class="gallery-section" id="gallery-section">
   <h2 class="gallery-title">Gallery</h2>
+  <p class="section-subheading">A glimpse into your future home</p>
+  
   <div class="gallery-grid">
     <img src="images/32.JPG" alt="Dream Exotica Gallery Image 1">
     <img src="images/33.JPG" alt="Dream Exotica Gallery Image 2">
@@ -1500,22 +1448,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <style>
 .gallery-section {
-  padding: 50px 20px;
+  padding: 20px 20px; /* Standardized padding */
   background: #fafafa;
+  text-align: center;
 }
 
 .gallery-title {
-  text-align: center;
   font-size: 2.6rem;
   font-weight: 600;
-  margin-top: -40px;
-  margin-bottom: 30px;
+  margin: 10px; /* Pulls subheading close */
   color: #333;
+}
+
+/* Subheading logic same as amenities */
+.section-subheading {
+  max-width: 650px;
+  margin: 0 auto 50px; /* 0 top, 50px bottom gap for grid */
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -1523,16 +1479,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 .gallery-grid img {
   width: 100%;
-  height: 220px; /* Fixed height for equal size */
-  object-fit: cover; /* Crops neatly without distortion */
+  height: 250px; /* Slightly taller for a premium look */
+  object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Tablet view */
@@ -1544,23 +1501,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* Mobile view */
 @media (max-width: 600px) {
+  .gallery-title {
+    font-size: 2rem !important; /* Forced to 2rem as requested */
+    margin: 5px;
+  }
+
+  .section-subheading {
+    font-size: 1rem;
+    margin-bottom: 30px; /* Reduced gap for mobile */
+  }
+
   .gallery-grid {
     grid-template-columns: 1fr;
-    padding: 0 15px; /* Adds margin on both sides */
+    padding: 0 10px;
+    gap: 15px;
+  }
+  
+  .gallery-grid img {
+    height: 200px; /* Slightly shorter images on mobile to prevent scrolling fatigue */
   }
 }
-
 </style>
-
 <!-- Location Section -->
 <section class="location-section" id="location-section">
   <div class="container">
     <!-- Heading and Description -->
-    <div class="location-header">
-      <h2>Key Locations Nearby</h2>
+<div class="location-header">
+  <h2>Key Locations Nearby</h2>
+  <p class="section-subheading">Strategically located for your convenience</p> 
+  </div>
       <br>
       <br>
-    </div>
 
     <!-- Map Embed -->
     <div class="map-container">
@@ -1652,6 +1623,7 @@ document.addEventListener("DOMContentLoaded", function() {
   height: 100%;
   border: 0;
   border-radius: 12px;
+  margin-top: -40px;
 }
 
 .key-locations h3 {
@@ -1690,7 +1662,7 @@ document.addEventListener("DOMContentLoaded", function() {
 @media(max-width: 768px) {
   .location-header h2 {
     font-size: 1.6rem;
-    margins: 10px;
+    margins: 1px;
   }
   .location-header p {
     font-size: 0.95rem;
@@ -1702,6 +1674,30 @@ document.addEventListener("DOMContentLoaded", function() {
     grid-template-columns: 1fr;
   }
 }
+
+/* Add this to your existing CSS */
+.section-subheading {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0 auto 50px; /* 0 top (near H2), 50px bottom gap for map */
+  max-width: 650px;
+}
+
+/* Update your existing Media Query */
+@media(max-width: 768px) {
+  .location-header h2 {
+    font-size: 2rem !important; /* Forces 2rem on mobile */
+    margin-bottom: 5px;
+  }
+  
+  .section-subheading {
+    font-size: 1rem;
+    margin-bottom: 30px; /* Tighter gap for mobile */
+  }
+
+
+
 </style>
 
 
@@ -1931,40 +1927,38 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 /* Terms checkbox */
-
-.terms-box{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-size:10px;
-  margin-bottom:15px;
-  color:#333;
+.terms-box {
+  display: flex;
+  align-items: flex-start; /* Better alignment for multi-line text */
+  gap: 10px;
+  font-size: 11px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: left;
 }
 
-.terms-box input{
-  width:auto;
-  margin:0;
-  cursor:pointer;
+.terms-box input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+  /* This is the modern way to change the checked color */
+  accent-color: #0d261a; 
 }
 
-.terms-box label{
-  cursor:pointer;
+.terms-box label {
+  cursor: pointer;
+  line-height: 1.4;
 }
 
-    * Checked state */
-.terms-box input[type="checkbox"]:checked{
-  background:#0d261a;
+.terms-box a {
+  color: #0d261a;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-
-.terms-box a{
-  color:#0d261a;
-  text-decoration:none;
-  font-weight:600;
-}
-
-.terms-box a:hover{
-  text-decoration:underline;
+.terms-box a:hover {
+  text-decoration: underline;
 }
 
 /* MOBILE ENQUIRY BAR ALIGNMENT */
@@ -2248,26 +2242,6 @@ window.addEventListener("scroll", function () {
     }
   }
 </style>
-
-<script>
-  const enquiryBar = document.getElementById('enquiryBar');
-  const footer = document.getElementById('footer');
-
-  function toggleEnquiryBar() {
-    const footerRect = footer.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // If footer is visible in viewport -> hide enquiry bar
-    if (footerRect.top < windowHeight) {
-      enquiryBar.classList.add('hidden');
-    } else {
-      enquiryBar.classList.remove('hidden');
-    }
-  }
-
-  window.addEventListener('scroll', toggleEnquiryBar);
-  window.addEventListener('resize', toggleEnquiryBar);
-</script>
 
 </body>
 </html>          

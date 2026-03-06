@@ -278,24 +278,25 @@ html, body {
 
 
 /* HERO SECTION */
-
-.hero-section {
-    height: calc(100svh - 70px); /* 70px = enquiry bar height */
-    width: 100%;
-    overflow: hidden;
+.hero-section{
+    width:100%;
+    height:calc(100dvh - 70px); /* 70px = enquiry bar height */
+    overflow:hidden;
+    position:relative;
 }
 
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* picture should fill container */
-
+/* picture wrapper */
 .hero-section picture{
     width:100%;
     height:100%;
+    display:block;
+}
+
+/* HERO IMAGE */
+.hero-img{
+    width:100%;
+    height:100%;
+    object-fit:fill; /* stretches vertically */
     display:block;
 }
 
@@ -2181,6 +2182,7 @@ window.addEventListener("scroll", function () {
 
 </body>
 </html>          
+
 
 
 

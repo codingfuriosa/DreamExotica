@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -260,7 +261,7 @@ top:0;
 left:0;
 width:100%;
 z-index:1000;
-padding:10px 4% 5px; /* more space from top */
+padding:4px 4% 5px; /* more space from top */
 transition:all .3s ease;
 background:transparent;
 }
@@ -402,7 +403,7 @@ display:flex;
 color:#333;
 font-size:15px;
 font-weight:500;
-padding:10px 10px;   /* reduced from 16px */
+padding:20px 10px;   /* reduced from 16px */
 border-bottom:1px solid rgba(0,0,0,0.08);
 letter-spacing:.3px;
 line-height:1.2;
@@ -1527,66 +1528,73 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- Location Section -->
 <section class="location-section" id="location-section">
   <div class="container">
-    <!-- Heading and Description -->
-<div class="location-header">
-  <center></center><h2>Key Locations</h2></center>
-  <p class="section-subheading">Strategically located for your convenience</p> 
-  </div>
-      <br>
-      <br>
+
+    <!-- Main Heading -->
+    <div class="location-header">
+      <center><h1>Location</h1></center>
+    </div>
+
+    <br><br>
 
     <!-- Map Embed -->
     <div class="map-container">
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.9481352080584!2d88.48106407508148!3d22.692974579406144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8a1e378946c91%3A0x5d8f8df0824e306c!2sDream%20exotica!5e0!3m2!1sen!2sin!4v1772006945833!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.9481352080584!2d88.48106407508148!3d22.692974579406144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8a1e378946c91%3A0x5d8f8df0824e306c!2sDream%20exotica!5e0!3m2!1sen!2sin!4v1772006945833!5m2!1sen!2sin"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-<!-- Key Locations -->
-<div class="key-locations">
+    <!-- Locational Advantages Heading -->
+    <div class="location-header">
+      <center><h2>Locational Advantages</h2></center>
+      <p class="section-subheading">Strategically located for your convenience</p>
+    </div>
 
-  <!-- Hospitals -->
-  <h3 class="location-heading"><i class="fas fa-hospital"></i> Hospitals</h3>
-  <ul>
-    <li><strong>Vivacity Multi Speciality </strong> – 2.5 km</li>
-    <li><strong>Florida Hospital</strong> – 3 km</li>
-    <li><strong>Heartland Hospital</strong> – 2 km</li>
-  </ul>
+    <!-- Key Locations -->
+    <div class="key-locations">
 
-  <!-- Education -->
-  <h3 class="location-heading"><i class="fas fa-school"></i> Educational Institutions</h3>
-  <ul>
-    <li><strong>Orchids The International </strong> – 2.5 km</li>
-    <li><strong>Monalisa English School</strong> – 2 km</li>
-    <li><strong>Sudhir Memorial Institute</strong> – 3 km</li>
-  </ul>
+      <!-- Hospitals -->
+      <h3 class="location-heading"><i class="fas fa-hospital"></i> Hospitals</h3>
+      <ul>
+        <li><strong>Vivacity Multi Speciality</strong> – 2.5 km</li>
+        <li><strong>Florida Hospital</strong> – 3 km</li>
+        <li><strong>Heartland Hospital</strong> – 2 km</li>
+      </ul>
 
-  <!-- Transport -->
-  <h3 class="location-heading"><i class="fas fa-bus"></i> Transportation</h3>
-  <ul>
-    <li><strong>Madhyamgram Railway </strong> – 2.4 km</li>
-    <li><strong>Madhyamgram Bus Stop</strong> – 2.5 km</li>
-    <li><strong>Jessore Road Bus Stop</strong> – 3 km</li>
-  </ul>
+      <!-- Education -->
+      <h3 class="location-heading"><i class="fas fa-school"></i> Educational Institutions</h3>
+      <ul>
+        <li><strong>Orchids The International</strong> – 2.5 km</li>
+        <li><strong>Monalisa English School</strong> – 2 km</li>
+        <li><strong>Sudhir Memorial Institute</strong> – 3 km</li>
+      </ul>
 
-  <!-- Dining -->
-  <h3 class="location-heading"><i class="fas fa-utensils"></i> Dining Options</h3>
-  <ul>
-    <li><strong>Portobello Cafe </strong> – 2.5 km</li>
-    <li><strong>Desi Lane</strong> – 3 km</li>
-    <li><strong>Star Mall Restaurants</strong> – 4 km</li>
-  </ul>
+      <!-- Transport -->
+      <h3 class="location-heading"><i class="fas fa-bus"></i> Transportation</h3>
+      <ul>
+        <li><strong>Madhyamgram Railway</strong> – 2.4 km</li>
+        <li><strong>Madhyamgram Bus Stop</strong> – 2.5 km</li>
+        <li><strong>Jessore Road Bus Stop</strong> – 3 km</li>
+      </ul>
 
-  <!-- Markets -->
-  <h3 class="location-heading"><i class="fas fa-shopping-cart"></i> Markets</h3>
-  <ul>
-    <li><strong>Madhyamgram Market </strong> – 0.8 km</li>
-    <li><strong>Star Mall</strong> – 3.5 km</li>
-    <li><strong>More Super Mall</strong> – 0.7 km</li>
-  </ul>
+      <!-- Dining -->
+      <h3 class="location-heading"><i class="fas fa-utensils"></i> Dining Options</h3>
+      <ul>
+        <li><strong>Portobello Cafe</strong> – 2.5 km</li>
+        <li><strong>Desi Lane</strong> – 3 km</li>
+        <li><strong>Star Mall Restaurants</strong> – 4 km</li>
+      </ul>
 
-</div>
+      <!-- Markets -->
+      <h3 class="location-heading"><i class="fas fa-shopping-cart"></i> Markets</h3>
+      <ul>
+        <li><strong>Madhyamgram Market</strong> – 0.8 km</li>
+        <li><strong>Star Mall</strong> – 3.5 km</li>
+        <li><strong>More Super Mall</strong> – 0.7 km</li>
+      </ul>
+
+    </div>
+
   </div>
 </section>
-
 <!-- CSS -->
 <style>
 .location-section {
@@ -1604,7 +1612,7 @@ document.addEventListener("DOMContentLoaded", function() {
   box-sizing: border-box;
 }
 
-.location-header h2 {
+.location-header h1 {
   font-size: 2.6rem;
   text-align: center;
   margin: 05px;
@@ -1694,7 +1702,7 @@ color:#0d261a;
 
 /* Update your existing Media Query */
 @media(max-width: 768px) {
-  .location-header h2 {
+  .location-header h1 {
     font-size: 2rem !important; /* Forces 2rem on mobile */
     margin-bottom: 5px;
     white-space: nowrap;
